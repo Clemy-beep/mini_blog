@@ -39,12 +39,13 @@ require_once './config/config.php';
             <form action="./model/register.php" method="post">
                 <i class="fas fa-user"></i>
                 <label>Username <br></label>
-                <input type="text" name="newusername" required>
+                <input type="text" name="username" required>
                 <br>
                 <i class="fas fa-key"></i>
                 <label>Password <br></label>
-                <input type="password" name="newpassword">
+                <input type="password" name="password">
                 <br>
+                <i class="fas fa-envelope-open-text"></i>
                 <label>Email <br></label>
                 <input type="email" name="email">
                 <br>
@@ -54,6 +55,7 @@ require_once './config/config.php';
     </div>
     </div>
     <footer>
+        <script src="./js/buttons.js"></script>
     </footer>
 </body>
 
