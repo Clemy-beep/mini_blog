@@ -1,0 +1,65 @@
+body {
+    background-image: url("./resources/background.jpg");
+    background-size: cover;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 250px;
+    height: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    background-color: black;
+    opacity: 0.45;
+    border-radius: 8px;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    color: whitesmoke;
+}
+
+input {
+    width: 150px;
+    height: 44px;
+    background-color: #3b3947;
+    color: whitesmoke;
+    border-radius: 8px;
+    margin: 8px;
+    border: none;
+}
+
+#login {
+    margin-bottom: 4%;
+    margin-top: 4%;
+}
+
+#sign-in,
+#sign-up {
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 4px #9e9baf;
+    margin-top: 8px;
+    height: 32px;
+    width: 80px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: 0;
+    font-weight: 500;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+}
