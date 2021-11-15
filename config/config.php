@@ -18,6 +18,7 @@
     $host = getenv('APP_HOST');
     $db   = getenv('APP_BDD');
     $user = getenv('APP_USER');
+    $password='';
     $port = getenv('APP_PORT');
     $charset = getenv('APP_CHARSET');
 
@@ -31,7 +32,7 @@
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 
     try {
-        $pdo = new \PDO($dsn, $user, $pass, $options);
+        $pdo = new \PDO($dsn, $user, $password, $options);
     } catch (\PDOException $e) {
             $u = $e->getMessage();
         throw new \PDOException($e->getMessage(), (int)$e->getCode());

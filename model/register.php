@@ -17,9 +17,10 @@ else {
         $stmt = $pdo->prepare("INSERT INTO `users` (`username`, `password` , `email`) VALUES (:username, :password, :email)");
         $stmt->execute(['username' => $username , 'password' => $password, 'email' => $email,]);
         include('../vues/success.html');
-    }catch(err){
+    }
+    catch(Exception $err){
         include('../vues/error.html');
-        print(err);
+        echo "$err";
     }
 }
 ?>
