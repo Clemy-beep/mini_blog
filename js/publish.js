@@ -3,7 +3,7 @@ let publish = document.getElementById("publish-button");
 publish.addEventListener("mouseenter", function(event) {
     event.target.style.backgroundColor = "#E1A560";
     event.target.style.color = "black";
-    event.target.style.border = "3px solid #486CB4";
+    event.target.style.border = "4px solid #486CB4";
     event.target.style.opacity = 1;
 }, false);
 

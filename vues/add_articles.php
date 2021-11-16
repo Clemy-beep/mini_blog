@@ -47,7 +47,7 @@
                 <label><i class="fas fa-atom" style="font-size: 24px;"></i> Content</label>
             </div>
             <br>
-            <textarea name="content" id="content" cols="20" rows="10" required style="height: 60%;"></textarea>
+            <textarea name="content" id="content" cols="20" rows="10" required ></textarea>
             <br>
             <input type="submit" value="Publish !" id="publish-button" style="cursor: pointer;">
         </form>
