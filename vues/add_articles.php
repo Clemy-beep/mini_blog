@@ -41,7 +41,7 @@
     </div>
     <div class="container">
         <form method="POST" action="../model/publish_article.php">
-            <div class="label" style="padding-top: 44px;">
+            <div class="label">
                 <label><i class="fas fa-space-shuttle" style="font-size: 24px;"></i>  Title</label>
             </div>
             <br>
