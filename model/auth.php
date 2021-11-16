@@ -14,7 +14,7 @@ try{
 
             session_start();
             $_SESSION['user'] = $username;
-            include('../vues/articles_list.html');
+            include('../vues/articles_list.php');
         }
         else{
             include('../vues/no_user.html');

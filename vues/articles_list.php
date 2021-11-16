@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php 
+    require_once '../model/log_infos.php';
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,12 +21,12 @@
 <body>
     <div class="menu">
         <img src="../resources/ufo-icon.svg" alt="ufo-icon" class="icon">
-        <div class="welcome">Welcome back !
+        <div class="welcome">Welcome back  <?php echo $loggeduser; ?> !
 
         </div>
-        <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="articles_list.html">All articles</a></div>
+        <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="articles_list.php">All articles</a></div>
         <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="users_articles.html ">My articles</a></div>
-        <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="add_articles.html">Create an article</a>
+        <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="../vues/add_articles.php">Create an article</a>
         </div>
         <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../index.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
 
