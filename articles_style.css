@@ -3,7 +3,7 @@ body {
     background-image: none;
     background: linear-gradient(to left top, #E9A461, #A96F75, #216BCE);
     background-repeat: no-repeat;
-    height: 100vh;
+    height: max-content;
 }
 
 * {

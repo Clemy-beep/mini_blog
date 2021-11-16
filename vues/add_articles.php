@@ -3,7 +3,11 @@
 
 
 <?php 
+    require_once '../config/config.php';
     require_once '../model/log_infos.php';
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
 ?>
 
 <head>
@@ -36,7 +40,7 @@
         <h1>Publish your awesome article</h1>
     </div>
     <div class="container">
-        <form action="POST" action="../model/publish_article.php">
+        <form method="POST" action="../model/publish_article.php">
             <div class="label" style="padding-top: 44px;">
                 <label><i class="fas fa-space-shuttle" style="font-size: 24px;"></i>  Title</label>
             </div>
