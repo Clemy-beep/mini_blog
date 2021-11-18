@@ -1,0 +1,150 @@
+body {
+    display: block;
+    background-image: none;
+    background: linear-gradient(to left top, #E9A461, #A96F75, #216BCE);
+    background-repeat: no-repeat;
+    height: max-content;
+    background-attachment: scroll;
+}
+
+* {
+    color: whitesmoke;
+}
+
+h1 {
+    font-weight: bold;
+    padding-left: 42px;
+    padding-top: 42px;
+    font-family: 'Genos';
+    font-size: 42px;
+}
+
+.menu {
+    position: sticky;
+    margin: -8px;
+    padding: 0;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+    height: 100px;
+    background-color: black;
+    opacity: 0.5;
+    font-family: 'Genos', sans-serif;
+    font-weight: bold;
+}
+
+.menuitem1,
+.menuitem2,
+.menuitem3,
+.menuitem4 {
+    width: 15%;
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: whitesmoke;
+    opacity: 1;
+}
+
+.welcome {
+    width: 25%;
+    margin-left: 40px;
+    text-align: left;
+    font-size: 44px;
+    font-weight: bolder;
+    align-self: center;
+    color: #ffa7ae;
+    line-height: 0.9em;
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+    margin-right: 22px;
+    margin-left: 42px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+
+#articles-icon {
+    padding-top: 30px;
+}
+
+.container {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #00000063;
+    border-radius: 12px;
+}
+
+.label {
+    font-family: 'Genos', sans-serif;
+    font-size: 44px;
+    color: whitesmoke;
+    margin-left: 9%;
+    margin-top: 32px;
+    vertical-align: middle;
+}
+
+#title {
+    height: 44px;
+    border-radius: 12px;
+    width: 80%;
+    margin-left: 9%;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: black;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#content {
+    margin-left: 9%;
+    width: 80%;
+    height: 50%;
+    border-radius: 12px;
+    padding: 20px;
+    color: black;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+}
+
+textarea {
+    resize: none;
+}
+
+#publish-button {
+    height: 48px;
+    width: 140px;
+    color: #d6b670;
+    font-size: 28px;
+    text-align: center;
+    background-color: #486CB4;
+    color: #d6b670;
+    /* border: 4px solid #d6b670; */
+    border: unset;
+    box-shadow: 1px 3px 12px #d6b670;
+    border-radius: 12px;
+    /*align center */
+    display: block;
+    margin: 16px auto 13px auto;
+}
+
+#publish-button:hover {
+    background-color: #d6b670;
+    border: unset;
+    box-shadow: 1px 3px 12px #486CB4;
+    color: #486CB4;
+}
+
+form {
+    display: block;
+    padding: 8px 1px;
+}
