@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <header>
     <div class="menu">
         <img src="../resources/ufo-icon.svg" alt="ufo-icon" class="icon">
         <div class="welcome">Welcome back  <?php echo $loggeduser; ?> !
@@ -31,6 +32,8 @@
         <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../index.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
 
     </div>
+    </header>
+   
     <div class="title">
         <img id="articles-icon" src="https://img.icons8.com/officel/40/000000/alien.png" />
         <h1>Articles list</h1>
@@ -38,7 +41,6 @@
 </body>
 
 <footer>
-    <script src="../js/banner.js"></script>
 </footer>
 
 </html>

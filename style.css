@@ -1,7 +1,71 @@
-body {
-    background-image: url("./resources/background.jpg");
-    background-size: 100vw 100vh;
-    background-repeat: no-repeat;
+header {
+    position: sticky;
+    width: 100vw;
+    margin: -8px;
+    outline: none;
+    text-decoration: none;
+    height: 7em;
+    background: linear-gradient(hsl(148, 53%, 86%), #41cc81, rgb(77, 161, 109));
+    opacity: 0.7;
+    font-family: 'Genos';
+    font-weight: bold;
+    margin-bottom: 64px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.menuitem1,
+.menuitem2,
+a {
+    width: 15%;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    opacity: 1;
+    font-family: 'Genos', sans-serif;
+    padding-top: 1.5em;
+    font-size: 28px;
+}
+
+.welcome {
+    width: 25%;
+    text-align: left;
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    padding-top: 1em;
+}
+
+.welcome-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: fit-content;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    background-color: white;
+    opacity: 0.45;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px 4px #00000045;
+}
+
+#welcome {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 15%;
+    align-items: center;
+}
+
+.icon {
+    width: 54px;
+    height: 54px;
+    align-self: center;
 }
 
 .container {
@@ -9,14 +73,12 @@ body {
     padding-bottom: 20px;
     padding-left: 8px;
     padding-right: 8px;
-    width: 250px;
+    width: 400px;
     height: fit-content;
     margin: 0 auto;
     text-align: center;
-    background-color: black;
-    opacity: 0.45;
     border-radius: 8px;
-    box-shadow: 0px 0px 4px 4px black;
+    box-shadow: 0px 0px 4px 4px #00000045;
 }
 
 .outer {
@@ -47,9 +109,10 @@ body {
     margin-left: auto;
 }
 
-* {
-    font-family: 'Roboto', sans-serif;
-    color: whitesmoke;
+label {
+    font-family: 'Genos', sans-serif;
+    font-size: 24px;
+    color: #3b3947;
 }
 
 input[type=text],
@@ -57,8 +120,8 @@ input[type=password],
 input[type=email] {
     width: 150px;
     height: 44px;
-    background-color: #3b3947;
-    color: whitesmoke;
+    background-color: #41cc8110;
+    color: #3b3947;
     border-radius: 12px;
     margin: 8px;
     border: none;
@@ -68,20 +131,32 @@ input[type=email] {
 #login {
     margin-bottom: 4%;
     margin-top: 4%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+    width: 80%;
+    padding-left: 15%;
+    padding-right: 10%;
 }
 
 input[type=submit] {
-    background-color: whitesmoke;
-    color: black;
-    border: 10px solid white;
-    margin-top: 8px;
-    height: 32px;
-    width: 80px;
+    background-color: #59f0a0;
+    border: 1px solid white;
+    margin: 24px;
     border-radius: 8px;
     font-size: 16px;
     border: 0;
     font-weight: 500;
     cursor: pointer;
+    font-size: 28px;
+    padding: 12px;
+}
+
+input[type=submit]:hover {
+    background-color: white;
+    color: #41cc81;
+    border: 1px solid #41cc81;
 }
 
 h1 {
@@ -89,13 +164,27 @@ h1 {
     font-size: 32px;
     text-align: center;
     padding: 10px;
+    font-family: 'Genos', sans-serif;
+    color: #3b3947;
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
     font-style: italic;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #41cc81;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-align: justify;
+    font-size: 24px;
+    margin-left: 34px;
+    margin-right: 34px;
+    color: #3b3947;
 }
 
 label {
@@ -104,4 +193,83 @@ label {
 
 i {
     text-align: left;
+}
+
+.alien {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+    height: 30vw;
+    padding-bottom: 44px;
+}
+
+#hi {
+    width: 30vw;
+    height: 30vw;
+}
+
+#yo {
+    width: 30vw;
+    height: 30vw;
+}
+
+#register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+@media(max-width:1000px) {
+    #hi {
+        height: 465px;
+        width: 465px;
+    }
+    #yo {
+        height: 465px;
+        width: 465px;
+    }
+    .alien {
+        height: 465px;
+        width: 465px;
+    }
+}
+
+@media(max-width:900px) {
+    #register {
+        display: block;
+    }
+    #hi {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 44px;
+    }
+    #login {
+        display: block;
+    }
+    #yo {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 44px;
+    }
+    .welcome {
+        font-size: 24px;
+    }
+    .alien {
+        height: 80vw;
+        width: 80vw;
+    }
+    .welcome-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    #welcome {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
