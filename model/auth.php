@@ -1,30 +1,60 @@
 <?php
-require_once '../config/config.php';
+require_once("../config/config.php");
 
-$username = isset($_POST["username"]) ? $_POST['username'] : null;
-$password = isset($_POST["password"]) ? $_POST['password'] : null;
-$err = '';
+if (!isset($_SERVER["HTTP_REFERER"])) {
+    die("access restricted");
+}
 
-try{
-    if(!empty($username) && !empty($password)){
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE `password`= :password AND `username` = :username;");
-        $stmt->execute(['username' => $username , 'password' => $password]);
-        $response = $stmt->fetch(PDO::FETCH_LAZY);
-        if(!empty($response)){
+if(! $_SERVER["HTTP_REFERER"] === "AccountController.php") {
+    die("access restricted");
+}
 
-            session_start();
-            $_SESSION['user'] = $username;
-            include('../vues/articles_list.php');
-        }
-        else{
-            include('../vues/no_user.html');
-        }
+$error = [
+    "message" => "",
+    "exist" => false
+];
+
+function checkLogin($email, $password)
+{
+    global $error;
+    $email =  htmlspecialchars(strip_tags($email));
+    $password =  htmlspecialchars(strip_tags($password));
+
+    if ( empty($email) || empty($password)) {
+        $error["message"] .= "Veuillez remplir tous les champs. Merci ! </br>";
+        $error["exist"] = true;
+
+        return $error;
     }
-} 
-    catch(Exception $err){
-    include('../vues/error.html');
-    echo "$err";
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error["message"] .= "Saisissez un adresse email valide";
+        $error["exist"] = true;
+
+        return $error;
+    }
+
+    getPasswordUser($email, $password);
+
+
+    return $error;
 }
 
 
-?>
+function getPasswordUser($email, $password){
+    global $connexion;
+    global $error;
+
+    $query= $connexion->prepare("SELECT * FROM `users` WHERE `email` = :email");
+    $query->execute(["email" => $email]);
+    $result= $query->fetch(PDO::FETCH_ASSOC);
+
+    $goodpwd= password_verify($password,$result['pwd']);
+
+    if(!$goodpwd){
+        $error['message']= "Wrong password";
+        $error['exist']=true;
+    }
+
+    return $error;
+}

@@ -22,8 +22,8 @@ if(session_status()=== PHP_SESSION_ACTIVE) {session_destroy();}
     <div class="menu">
         <img src="../resources/ufo-icon.svg" alt="ufo-icon" class="icon">
         <div class="welcome"> <a id="menuitem1" style="text-decoration:none" href="index.php">Welcome, dear awake fellow !</a></div>
-        <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="./vues/sign-in.php">Sign in</a></div>
-        <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="./vues/log-in.php ">Sign up</a></div>
+        <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="./vues/account/sign-in.php">Sign up</a></div>
+        <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="./vues/account/log-in.php ">Sign in</a></div>
   
 
     </div>
@@ -32,7 +32,7 @@ if(session_status()=== PHP_SESSION_ACTIVE) {session_destroy();}
     <div class="welcome-container">
         <h1>Roswell's blog</h1>
         <h2>The one and only blog for those who know better. </h2>
-        <p>Hi visitor ! Do you think the Moon Landing is a hoax ? Do you believe aliens are the ones who inspired angels and demons in the Bible ? Do you know for sure that Crop Circles are an alien message ? You are to the right place, friend !</p>
+        <p>Hi visitor ! Do you think the Moon Landing is a hoax ? Do you believe aliens are the ones who inspired angels and demons in the Bible ? Do you know for sure that Crop Circles are an alien message ? You are in the right place, friend !</p>
     </div>
     <img src="./resources/aliens.png" alt="Aliens" class="alien">
 

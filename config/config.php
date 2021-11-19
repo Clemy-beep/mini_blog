@@ -32,7 +32,7 @@
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 
     try {
-        $pdo = new \PDO($dsn, $user, $password, $options);
+        $connexion = new \PDO($dsn, $user, $password, $options);
     } catch (\PDOException $e) {
             $u = $e->getMessage();
         throw new \PDOException($e->getMessage(), (int)$e->getCode());

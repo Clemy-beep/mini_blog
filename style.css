@@ -1,6 +1,5 @@
 header {
     position: sticky;
-    width: 100vw;
     margin: -8px;
     outline: none;
     text-decoration: none;
@@ -27,17 +26,22 @@ a {
     color: white;
     opacity: 1;
     font-family: 'Genos', sans-serif;
-    padding-top: 1.5em;
+    padding-top: 1.25em;
     font-size: 28px;
 }
 
+.menuitem1:hover,
+.menuitem2:hover {
+    text-shadow: 0px 0px 4px #b8c5be;
+}
+
 .welcome {
-    width: 25%;
+    width: 26%;
     text-align: left;
     font-size: 40px;
     font-weight: bolder;
     color: white;
-    padding-top: 1em;
+    padding-top: 0.5em;
 }
 
 .welcome-container {
@@ -52,7 +56,7 @@ a {
     background-color: white;
     opacity: 0.45;
     border-radius: 8px;
-    box-shadow: 2px 2px 4px 4px #00000045;
+    box-shadow: 0px 0px 6px 2px #00000045;
 }
 
 #welcome {
@@ -78,16 +82,7 @@ a {
     margin: 0 auto;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0px 0px 4px 4px #00000045;
-}
-
-.outer {
-    display: table;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    box-shadow: 0px 0px 6px 2px #00000045;
 }
 
 .container2 {
@@ -223,7 +218,15 @@ i {
     margin-right: 10%;
 }
 
-@media(max-width:1000px) {
+a span {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #41cc81;
+}
+
+@media(max-width:1200px) {
     #hi {
         height: 465px;
         width: 465px;
@@ -235,6 +238,9 @@ i {
     .alien {
         height: 465px;
         width: 465px;
+    }
+    .welcome {
+        padding-top: 0.25em;
     }
 }
 

@@ -1,26 +1,66 @@
 <?php
-require_once '../config/config.php';
+require_once("../config/config.php");
 
-$username = isset($_POST["username"]) ? $_POST['username'] : null;
-$password = isset($_POST["password"]) ? $_POST['password'] : null;
-$email = isset($_POST["email"]) ? $_POST['email'] : null;
+if (!isset($_SERVER["HTTP_REFERER"])) {
+    die("access restricted");
+}
 
-$stmt = $pdo->prepare("SELECT username FROM users WHERE username = :username");
-$stmt->execute(['username' => $username]);
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
+if(! $_SERVER["HTTP_REFERER"] === "AccountController.php") {
+    die("access restricted");
+}
 
-if (isset($user) && !empty($user)) {
-    include('../vues/userexists.html');
-} 
-else {
-    try{
-        $stmt = $pdo->prepare("INSERT INTO `users` (`username`, `password` , `email`) VALUES (:username, :password, :email)");
-        $stmt->execute(['username' => $username , 'password' => $password, 'email' => $email,]);
-        include('../vues/success.html');
+$error = [
+    "message" => "",
+    "exist" => false
+];
+
+function checkSignUp($username, $password, $email)
+{
+    global $error;
+    $username =  htmlspecialchars(strip_tags($username));
+    $password =  htmlspecialchars(strip_tags($password));
+    $email =  htmlspecialchars(strip_tags($email));
+
+ 
+    if (
+        empty($username) || empty($password) || empty($email)
+    ) {
+        $error["message"] .= "Veuillez remplir tous les champs. Merci ! </br>";
+        $error["exist"] = true;
+
+        return $error;
     }
-    catch(Exception $err){
-        include('../vues/error.html');
-        echo "$err";
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error["message"] .= "Saisissez un adresse email valide";
+        $error["exist"] = true;
+        echo $email;
+        die();
+        return $error;
+    }
+
+    $password = passwordHash($password);
+
+    addUser($username, $password, $email);
+    
+    return $error;
+}
+
+function addUser($username, $password, $email)
+{
+    global $connexion;
+    global $error;
+
+    $query = $connexion->prepare("INSERT INTO `users`(`username`,`pwd`,`email`)  VALUES (:username, :pwd, :email)");
+    $response = $query->execute(["username" => $username,"pwd" => $password,  "email" => $email]);
+    if (!$response) {
+        $error["message"] .= "Une erreur s'est produite durant l'insertion";
+        $error["exist"] = true;
     }
 }
-?>
+
+function passwordHash($password) {
+    $hash_password = password_hash($password, PASSWORD_DEFAULT);
+
+    return $hash_password;
+}
