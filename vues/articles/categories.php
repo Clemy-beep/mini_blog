@@ -1,15 +1,16 @@
-<?php 
-    session_start();
-?>
 
+<?php 
+   session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create article</title>
+    <title>Categories</title>
     <link rel="stylesheet" href="../../articles_style.css?<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,42 +36,13 @@
 
     </div>
     </header>
-    
+   
     <div class="title">
-        <img id="articles-icon" src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/000000/external-ufo-space-icongeek26-linear-colour-icongeek26.png" />
-        <h1>Publish your awesome article</h1>
+        <img id="articles-icon" src="../../resources/stars.png" width="54px" height="54px" />
+        <h1>Browse by categories !</h1>
     </div>
-    <div class="container">
-        <form method="POST" action="../../controller/articlesController.php">
-            <input type="hidden" name="author" value=<?php echo $_SESSION['user']['username'] ?? "Anonymous" ?>>
-            <div class="label">
-                <label><i class="fas fa-space-shuttle" style="font-size: 24px; padding-top: 2em;"></i>  Title</label>
-            </div>
-            <br>
-            <input type="text" name="title" id="title" required>
-            <br>
-            <div class="label">
-                <label><i class="fas fa-atom" style="font-size: 24px;"></i> Content</label>
-            </div>
-            <br>
-            <textarea name="content" id="content" cols="20" rows="10" required ></textarea>
-            <br>
-            <div class="label">
-                <label><i class="fas fa-robot" style="font-size: 24px;"> Category</i></label>
-            </div>
-            <br>
-            <select name="category" id="category">
-                <option value="Aliens">Aliens</option>
-                <option value="Government's plot">Government's plot</option>
-                <option value="NASA">NASA</option>
-                <option value="Apollo Mission">Apollo Mission</option>
-            </select>
-            <input type="submit" value="Publish !" id="publish-button" style="cursor: pointer;">
-        </form>
-    </div>
-    <div id="emptycontainer"></div>
-
 </body>
+
 <footer>
 </footer>
 

@@ -16,6 +16,7 @@ if(isset(
         $_POST['email']);
     
         if($isValid['exist']){
+          
             header("Location: /vues/error.php");
         } 
         else
@@ -28,8 +29,11 @@ if(isset(
             $_POST['password2']
         );
         if($isValid['exist']){
+            echo($isValid['message']);
+            die();
             header("Location: /vues/account/no_user.php");
         }
-        else 
+        else {
             header("Location: /vues/articles/articles_list.php");
+        }
     }

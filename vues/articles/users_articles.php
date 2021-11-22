@@ -1,3 +1,8 @@
+
+<?php 
+   session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All articles</title>
+    <title>My articles</title>
     <link rel="stylesheet" href="../../articles_style.css?<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,14 +24,15 @@
     <header>
         <div class="menu">
             <img src="../../resources/ufo-icon.svg" alt="ufo-icon" class="icon">
-            <div class="welcome">Welcome back !
-
-            </div>
+            <div class="welcome">Welcome back  <?php if(isset($_SESSION['user']['username'])){echo$_SESSION['user']['username'];} else header("Location: /index.php"); ?>  !</div>
             <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="articles_list.php">All articles</a></div>
             <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="users_articles.php ">My articles</a></div>
             <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="add_articles.php">Create an article</a>
-            </div>
-            <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../../index.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
+        </div>
+            <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="categories.php">Categories</a>
+            
+        </div>
+        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
 
         </div>
     </header>

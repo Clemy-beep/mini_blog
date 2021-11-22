@@ -1,13 +1,6 @@
+
 <?php
 require_once("../config/config.php");
-
-if (!isset($_SERVER["HTTP_REFERER"])) {
-    die("access restricted");
-}
-
-if(! $_SERVER["HTTP_REFERER"] === "AccountController.php") {
-    die("access restricted");
-}
 
 $error = [
     "message" => "",
@@ -36,25 +29,53 @@ function checkLogin($email, $password)
 
     getPasswordUser($email, $password);
 
-
     return $error;
 }
 
-
-function getPasswordUser($email, $password){
+function getPasswordUser($email, $password)
+{
     global $connexion;
     global $error;
 
-    $query= $connexion->prepare("SELECT * FROM `users` WHERE `email` = :email");
-    $query->execute(["email" => $email]);
-    $result= $query->fetch(PDO::FETCH_ASSOC);
-
-    $goodpwd= password_verify($password,$result['pwd']);
-
-    if(!$goodpwd){
-        $error['message']= "Wrong password";
-        $error['exist']=true;
+    $query = $connexion->prepare("SELECT `pwd`, `username`  FROM `users` WHERE email=:email;");
+    $response = $query->execute(["email" => $email]);
+    if (!$response) {
+        $error["message"] .= "No account found.";
+        $error["exist"] = true;
+        return $error;
     }
 
+    $aDatas = $query->fetchAll();
+
+    verifyPassword($aDatas, $password);
+   
     return $error;
+}
+
+function verifyPassword($aDatas, $password) {
+    global $error;
+    $aDatas = $aDatas[0];
+
+    if(!isset($aDatas['pwd'])) {
+        $error["message"] .= "No user found.";
+        $error["exist"] = true;
+
+        return $error;
+    }
+    
+    $passwordVerified = password_verify($password, $aDatas['pwd']);
+
+    if (!$passwordVerified) {
+        $error["message"] .= "Wrong password.";
+        $error["exist"] = true;
+
+        return $error;
+    }
+
+    createSession($aDatas);
+}
+
+function createSession($aDatas) {
+    session_start();
+    $_SESSION['user']['username'] = $aDatas['username'];
 }

@@ -3,7 +3,6 @@
 
 <?php 
     session_start();
-
     header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
     header("Cache-Control: post-check=0, pre-check=0", false);
     header("Pragma: no-cache");
@@ -13,7 +12,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Article added</title>
+    <title> Error in publication</title>
     <link rel="stylesheet" href="../../articles_style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,23 +30,20 @@
             <div class="welcome">Welcome back  <?php if(isset($_SESSION['user']['username'])){echo$_SESSION['user']['username'];} else header("Location: /index.php"); ?>  !</div>
             <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="articles_list.php">All articles</a></div>
             <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="users_articles.php ">My articles</a></div>
-            <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="categories.php">Categories</a>
-        </div>
-        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
-
-        </div>
+            <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="categories.php">Categories</a></div>
+            <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
+    </div>
     </header>
 
     <main>
         <div id="main">
-            <img src="../../resources/happy.jpg" alt="happyalien" id="yo">
+            <img src="../resources/sad.png" alt="sadalien" id="yo">
             <div class="container2">
-            <h1>Article created ! <br></h1>
-            <h2>Your marvelous text has been successfully published.</h2>
+            <h1>Oh no ! <br></h1>
+            <h2>Your article couldn't be published. Please try again later.</h2>
             <a href="./articles_list.php" style="text-decoration: none;">
                 <span id="articleslink">Seel all articles</span> </a>
         </div>
-
         </div>
        
 </main>

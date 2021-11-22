@@ -28,7 +28,7 @@
         </div>
     </header>
 
-    <body>
+    <main>
         <div id="login">
             <img src="../../resources/happy.jpg" alt="happyalien" id="yo">
             <div class="container">
@@ -39,7 +39,7 @@
 
         </div>
        
-    </body>
+</main>
 </body>
 
 </html>
