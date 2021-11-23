@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    unset($_SESSION["user"]["username"]);
+    session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php

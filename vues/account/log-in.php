@@ -2,7 +2,9 @@
 <html lang="en">
 <?php
 require_once '../../config/config.php';
-if(session_status()=== PHP_SESSION_ACTIVE) {session_destroy();}
+session_start();
+    unset($_SESSION["user"]["username"]);
+    session_destroy();
 ?>
 <head>
     <meta charset="UTF-8">
