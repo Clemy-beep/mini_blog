@@ -39,6 +39,8 @@ function checkSignUp($username, $password, $email)
         return $error;
     }
 
+    verifyUnique($email);
+
     $password = passwordHash($password);
 
     addUser($username, $password, $email);
@@ -56,6 +58,23 @@ function addUser($username, $password, $email)
     if (!$response) {
         $error["message"] .= "Une erreur s'est produite durant l'insertion";
         $error["exist"] = true;
+
+        return $error;
+    }
+
+}
+
+function verifyUnique($email){
+    global $connexion;
+    global $error;
+
+    $query = $connexion->prepare("SELECT * FROM `users` WHERE `email` = :email");
+    $response = $query->execute(["email"=> $email]);
+    if(!empty($response)){
+        $error['message'] = "User already exists";
+        $error['exist']=true;
+
+        return $error;
     }
 }
 
