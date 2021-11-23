@@ -70,7 +70,9 @@ function verifyUnique($email){
 
     $query = $connexion->prepare("SELECT * FROM `users` WHERE `email` = :email");
     $response = $query->execute(["email"=> $email]);
-    if(!empty($response)){
+    $datas= $query->fetchAll();
+
+    if(!empty($datas)){
         $error['message'] = "User already exists";
         $error['exist']=true;
 

@@ -15,11 +15,11 @@ if(isset(
         $_POST['password'],
         $_POST['email']);
         
-        if($isValid['message']=="User already exists"){
-            header("Location: /vues/account/userexists.php");
-        }
-        elseif($isValid['exist']){
-          
+      
+        if($isValid['exist']){
+            if($isValid['message']==="User already exists"){
+                header("Location: /vues/account/userexists.php");
+            } else
             header("Location: /vues/error.php");
         } 
         else
