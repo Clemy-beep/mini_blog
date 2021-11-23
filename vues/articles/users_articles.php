@@ -1,6 +1,34 @@
 
 <?php 
-   session_start();
+
+require_once("../../config/config.php");
+
+    session_start();
+   $error = [
+    "message" => "",
+    "exist" => false
+    ];
+
+    global $connexion;
+    $row = array();
+    $title = "";
+    $author ="";
+    $content="";
+    $date = '';
+    $category = "";
+
+    try{
+
+        $query = $connexion->prepare("SELECT * FROM `articles` WHERE `author` = :author;");
+        $query->execute(["author" => $_SESSION['user']['username']]);
+        $response =$query->fetchAll();
+        }
+         catch(Exception $err){
+             $error['message'] = $err;
+             $error['exist']=true;
+             echo $error['message'];
+             die();
+         }
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +60,7 @@
             <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="categories.php">Categories</a>
             
         </div>
-        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
+        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt" style="color: white;"></i> Disconnect</a></div>
 
         </div>
     </header>
@@ -40,6 +68,44 @@
     <div class="title">
         <img id="articles-icon" src="../../resources/myarticlesicon.svg" height="42px" width="42px" />
         <h1>My articles</h1>
+    </div>
+    <div class="main">
+        <?php 
+        if(!empty($response)){
+            foreach($response as $row){
+
+                $date= $row['published_on'];
+                $timestamp = strtotime($date);
+    
+                $title= $row['title'];
+                $published_on = date("d-m-Y", $timestamp);
+                $author= $row["author"];
+                $content= $row['content'];
+                $category= $row['category'];
+                echo ' 
+                <article>
+                    <div class="article-title">'. $title .'</div>
+                    <div class="article-content">'.$content .' </div>
+                    <div class="article-infos">
+                    <diV class="author"><i class="fas fa-user-edit"></i>'.$author .'</diV>
+                    <div class="date"><i class="fas fa-clock"> </i>'. $published_on .'</div>
+                    <div class="category"><i class="fas fa-box"> </i> '.$category .'</div>
+                    </div>
+                </article>';
+            }
+        } else{
+            echo '
+            <img src="../../resources/empty.png" alt="emptyalien" id="yo">
+            <div class="container2">
+            <h1>You haven\'t published anything yet ! <br></h1>
+            <h2>We are eager to read your theories, share them with us.</h2>
+            <a href="./add_articles.php" style="text-decoration: none;">
+                <span id="articleslink">Create your article</span> </a>
+            </div>
+            ';
+        }
+        ?>
+       
     </div>
 </body>
 

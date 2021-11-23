@@ -21,17 +21,6 @@ require_once("../../config/config.php");
     $query = $connexion->prepare("SELECT * FROM `articles`;");
     $query->execute();
     $response =$query->fetchAll();
-    
-        foreach($response as $row){
-            $date= $row['published_on'];
-            $timestamp = strtotime($date);
-
-            $title= $row['title'];
-            $published_on = date("d-m-Y", $timestamp);
-            $author= $row["author"];
-            $content= $row['content'];
-            $category= $row['category'];
-        }
     }
      catch(Exception $err){
          $error['message'] = $err;
@@ -71,7 +60,7 @@ require_once("../../config/config.php");
         <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="add_articles.php">Create an article</a></div>
         <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="categories.php">Categories</a>
         </div>
-        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
+        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt" style="color: white;"></i> Disconnect</a></div>
 
     </div>
     </header>
@@ -81,22 +70,42 @@ require_once("../../config/config.php");
         <h1>Articles list</h1>
     </div>
     <div class="main">
-        <article>
-            <div class="article-title">Article title</div>
-            <div class="article-content">Content Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content ontent Content Content </div>
-            <div class="article-infos">
-                <diV class="author"><i class="fas fa-user-edit"></i> Author</diV>
-                <div class="date"><i class="fas fa-clock"> </i> Publication date</div>
-                <div class="category"><i class="fas fa-box"> </i> Category</div>
-            </div>
-        </article>
-       
-       
+        <?php 
+        
+        foreach($response as $row){
+            $date= $row['published_on'];
+            $timestamp = strtotime($date);
+
+            $title= $row['title'];
+            $published_on = date("d-m-Y", $timestamp);
+            $author= $row["author"];
+            $content= $row['content'];
+            $category= $row['category'];
+            echo ' 
+            <article>
+                <div class="article-title">'. $title .'</div>
+                <div class="article-content" id="article-content">'.$content .' </div>
+                <div class="article-infos">';
+            if($author === $_SESSION['user']['username']){
+                echo '        
+                <div class="isUserAuthor" style="cursor: pointer; color:#ee2020"><i class="far fa-trash-alt"></i> Delete</div>
+                ';
+            }
+            echo    '
+                <diV class="author"><i class="fas fa-user-edit"></i>'.$author .'</diV>
+                <div class="date"><i class="fas fa-clock"> </i>'. $published_on .'</div>
+                <div class="category"><i class="fas fa-box"> </i> '.$category .'</div>
+                <div style="cursor: pointer;" class="deploy" onclick="deployText()"><i class="fas fa-caret-down"></i> Deploy</div>
+                </div>
+            </article>';
+        }
+        ?>
     </div>
 
 </body>
 
 <footer>
+    <script src="../../js/deploytext.js"></script>
 </footer>
 
 </html>

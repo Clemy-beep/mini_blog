@@ -1,6 +1,5 @@
 <?php
 require_once '../config/config.php';
-require_once '../config/log_infos.php';
 require_once '../model/auth.php';
 
 

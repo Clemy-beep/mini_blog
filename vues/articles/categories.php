@@ -1,6 +1,6 @@
 
 <?php 
-   session_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
         </div>
         <div class="menuitem3 "><a id="menuitem3" style="text-decoration:none" href="categories.php">Categories</a>
         </div>
-        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt"></i> Disconnect</a></div>
+        <div class="menuitem4"><a id="menuitem4" style="text-decoration:none " href="../account/logout.php"><i class="fas fa-sign-out-alt" style="color:white"></i> Disconnect</a></div>
 
     </div>
     </header>
@@ -40,6 +40,18 @@
     <div class="title">
         <img id="articles-icon" src="../../resources/stars.png" width="54px" height="54px" />
         <h1>Browse by categories !</h1>
+    </div>
+    <div class="main">
+            <select name="categories" id="categories">
+                <option value="Aliens">Aliens</option>
+                <option value="Government's plot">Government's plot</option>
+                <option value="NASA">NASA</option>
+                <option value="Apollo Mission">Apollo Mission</option>
+            </select>
+            <input type="submit" value="Browse !" id="publish-button" style="cursor: pointer; display: block; margin-left: auto; margin-right: auto;">
+        <?php
+        
+        ?>
     </div>
 </body>
 
