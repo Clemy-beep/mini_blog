@@ -2,7 +2,6 @@
 
 require_once("../config/config.php");
 
-session_start();
 
 
 $error = [
@@ -10,14 +9,14 @@ $error = [
     "exist" => false
 ];
 
-function modifyArticle($id, $title, $content, $author) {
+function modifyArticle($id, $title, $author, $content) {
   
     global $connexion;
 
     global $error;
     try {
         $query = $connexion->prepare("UPDATE `articles` SET `title`=:title, `content`= :content WHERE (`author`=:author AND `id`=:id);");
-        $response = $query->execute(['id' => $id, 'content' => $content, 'title' => $title, 'author' => $author]);
+        $response = $query->execute(['id' => $id,'title' => $title, 'author' => $author,'content' => $content,]);
 
     } catch ( Exception $err) {
         $error["message"] .= $err;

@@ -4,7 +4,6 @@ require_once '/home/stagiaire16/Documents/mini_blog/config/config.php';
 require_once '/home/stagiaire16/Documents/mini_blog/model/publish_article.php';
 require_once '/home/stagiaire16/Documents/mini_blog/model/modify_article.php';
 
-session_start();
 
 if (!isset($_GET['action'])) {
     die("Params needed");
@@ -43,9 +42,11 @@ function publish(){
 }
 
 function modify(){
-    if(isset($_POST['title'],$_POST['id'], $_POST['author'], $_POST['content'])){
-        $isReadyModify = modifyArticle($_POST['title'], $_POST['content'], $_POST['author'], $_POST['id']);
+    if(isset($_POST['id'],$_POST['title'], $_POST['author'], $_POST['content'])){
+        $isReadyModify = modifyArticle($_POST['id'], $_POST['title'],$_POST['author'],  $_POST['content']);
         if(!$isReadyModify['exist']){
+            var_dump($_POST);
+            die;
             header("Location: /vues/articles/modif_success.php");
         } 
         else header("Location: /vues/articles/modif_error.php");

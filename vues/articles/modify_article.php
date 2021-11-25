@@ -65,7 +65,7 @@
             </textarea>
             <br>
             <input type="hidden" name="id" value="<?=$aArticle['id']?>">
-            <input type="hidden" name="author" value="<?= $_SESSION['user']['username'] ?>">
+            <input type="hidden" name="author" value="<?= $aArticle['author'] ?>">
             <input type="submit" value="Modify !" id="publish-button" style="cursor: pointer;">
         </form>
     </div>
