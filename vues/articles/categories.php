@@ -1,6 +1,23 @@
 
 <?php 
+    require_once("../../config/config.php");
+
     session_start();
+    $error = [
+        "message" => "",
+        "exist" => false
+        ];
+
+        global $connexion;
+        $row = array();
+        $title = "";
+        $author = "";
+        $content="";
+        $date = '';
+        $category = "";
+        $id;
+
+       
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +58,8 @@
         <img id="articles-icon" src="../../resources/stars.png" width="54px" height="54px" />
         <h1>Browse by categories !</h1>
     </div>
-    <div class="main">
+    <div class="cat-articles">
+        <form action="categories.php" method="post">
             <select name="categories" id="categories">
                 <option value="Aliens">Aliens</option>
                 <option value="Government's plot">Government's plot</option>
@@ -49,13 +67,68 @@
                 <option value="Apollo Mission">Apollo Mission</option>
             </select>
             <input type="submit" value="Browse !" id="publish-button" style="cursor: pointer; display: block; margin-left: auto; margin-right: auto;">
-        <?php
-        
+        </form>    
+        <?php 
+        if(isset($_POST['categories'])){
+            try{
+
+                $query = $connexion->prepare("SELECT * FROM `articles` WHERE `category` = :category AND isDeleted = 0  ORDER BY `published_on` DESC;");
+                $query->execute(["category" => $_POST['categories']]);
+                $response =$query->fetchAll();
+                }
+                catch(Exception $err){
+                    $error['message'] = $err;
+                    $error['exist']=true;
+                    echo $err;
+                    die();
+                }
+                  if(!empty($response)){
+                    foreach($response as $row){
+                        $date= $row['published_on'];
+                        $timestamp = strtotime($date);
+                        $title= $row['title'];
+                        $published_on = date("d-m-Y", $timestamp);
+                        $author= $row["author"];
+                        $content= $row['content'];
+                        $category= $row['category'];
+                        $id=$row['id'];
+                            echo ' 
+                            <article id="categ-articles">   
+                                <div class="article-title">'. $title .'</div>';
+                                if($author === $_SESSION['user']['username']){
+                                    echo '        
+                                    <div class="article-options">
+                                    <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id='.$id.'\';" ><i class="fa-solid fa-pen-to-square"></i> Edit</div>
+                                    <div class="isUserAuthor" ><i class="far fa-trash-alt"></i> Delete</div>
+                                    </div>
+                                    ';
+                                }
+                            echo'
+                                <div class="article-content" id="id'.$id.'">'.$content .' </div>
+                                <div class="article-infos">
+                                    <diV class="author"><i class="fas fa-user-edit"></i>'.$author .'</diV>
+                                    <div class="date"><i class="fas fa-clock"> </i>'. $published_on .'</div>
+                                    <div class="category"><i class="fas fa-box"> </i> '.$category .'</div>
+                                    <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton'.$id.'" onclick="deployText('.$id.')" ><i class="fas fa-caret-down"> See more</i> </div>
+                                </div>
+                            </article>';
+                    }
+                } else echo '
+                    <div class="container2">
+                        <h1>No article in this category yet ! <br></h1>
+                        <h2>No one has wrote for the category : '.$category.'. Be the first !</h2>
+                        <a href="./add_articles.php" style="text-decoration: none;">
+                        <span id="articleslink">Create your article</span> </a>
+                    </div>
+                    
+                ';
+            } 
         ?>
     </div>
 </body>
 
 <footer>
+    <script src="../../js/deploytext.js"></script>
 </footer>
 
 </html>

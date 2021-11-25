@@ -1,10 +1,8 @@
 <?php
-require_once '../config/config.php';
-require_once '../model/auth.php';
-
+require_once '/home/stagiaire16/Documents/mini_blog/config/config.php';
+require_once '/home/stagiaire16/Documents/mini_blog/model/auth.php';
 
 session_start();
-
 $title = isset($_POST["title"]) ? $_POST['title'] : null;
 $content = isset($_POST["content"]) ? $_POST['content'] : null;
 $category = isset($_POST['category']) ? $_POST['category']: null;

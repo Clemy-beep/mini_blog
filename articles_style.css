@@ -154,17 +154,22 @@ span {
 select {
     height: 44px;
     border-radius: 12px;
-    width: 80%;
-    margin-left: 9%;
+    width: 60%;
     padding-left: 20px;
     padding-right: 20px;
     font-size: 24px;
     font-family: 'Roboto', sans-serif;
     background-color: #41cc8110;
     border: 1px solid #3b3947;
+    max-width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#contet:focus-visible {
+#title:focus-visible,
+#content:focus-visible,
+select {
     outline: 2px solid rgb(4, 223, 150);
 }
 
@@ -175,7 +180,6 @@ textarea {
 #publish-button {
     height: 48px;
     width: 140px;
-    color: #d6b670;
     font-size: 28px;
     text-align: center;
     padding-left: 0;
@@ -183,7 +187,7 @@ textarea {
     margin-top: 36px;
     margin-left: 45%;
     margin-right: auto;
-    background-color: #44b378;
+    background-color: #41cc81;
     color: whitesmoke;
     border: 1px solid white;
     border-radius: 12px;
@@ -215,18 +219,19 @@ textarea {
 .main {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 20vw;
-    margin-right: 20vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    align-items: center;
     margin-bottom: 42px;
+    gap: 2em 2em;
 }
 
 article {
-    width: 40%;
+    width: 25%;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0px 0px 6px 2px #00000045;
     background-color: white;
-    margin-top: 24px;
     padding: 2em;
     border-radius: 16px;
     height: fit-content;
@@ -265,10 +270,101 @@ article {
     padding-top: 2em;
 }
 
+.article-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
 .author {
     text-decoration: underline;
 }
 
-i {
-    color: #3b3947;
+.deployButton {
+    padding: 0.1em;
+    background-color: #41cc81;
+    color: white;
+}
+
+#categ-articles {
+    width: 45vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+@media(max-width:1200px) {
+    .main {
+        margin-left: 6%;
+        margin-right: 6%;
+    }
+    article {
+        width: 35%;
+        margin-right: 24px;
+    }
+    .article-infos {
+        font-size: 12px;
+    }
+    .menu {
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    #yo {
+        height: 465px;
+        width: 465px;
+    }
+    .container2 {
+        width: 25vw;
+    }
+    .container2 h1 {
+        font-size: 30px;
+    }
+    .container2 h2 {
+        font-size: 18px;
+    }
+    .welcome {
+        padding-top: 0.25em;
+        font-size: 26px;
+        width: 15%;
+    }
+    .menuitem1,
+    .menuitem2,
+    .menuitem3,
+    .menuitem4,
+    a {
+        padding-top: 0.25em;
+        font-size: 22px;
+    }
+}
+
+@media(max-width:900px) {
+    #yo {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 0;
+    }
+    .welcome {
+        font-size: 24px;
+    }
+    .welcome-container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .container2 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.isUserAuthor {
+    cursor: pointer;
+    color: #FF77EE;
+    text-align: right;
 }

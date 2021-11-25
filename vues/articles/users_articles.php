@@ -4,31 +4,7 @@
 require_once("../../config/config.php");
 
     session_start();
-   $error = [
-    "message" => "",
-    "exist" => false
-    ];
-
-    global $connexion;
-    $row = array();
-    $title = "";
-    $author ="";
-    $content="";
-    $date = '';
-    $category = "";
-
-    try{
-
-        $query = $connexion->prepare("SELECT * FROM `articles` WHERE `author` = :author;");
-        $query->execute(["author" => $_SESSION['user']['username']]);
-        $response =$query->fetchAll();
-        }
-         catch(Exception $err){
-             $error['message'] = $err;
-             $error['exist']=true;
-             echo $error['message'];
-             die();
-         }
+   include '../../model/usersArticlesModel.php';
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +52,7 @@ require_once("../../config/config.php");
 
                 $date= $row['published_on'];
                 $timestamp = strtotime($date);
-    
+                $id=$row['id'];
                 $title= $row['title'];
                 $published_on = date("d-m-Y", $timestamp);
                 $author= $row["author"];
@@ -85,11 +61,15 @@ require_once("../../config/config.php");
                 echo ' 
                 <article>
                     <div class="article-title">'. $title .'</div>
+                    <div class="article-options">
+                        <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id='.$id.'\';"><i class="fa-solid fa-pen-to-square"></i> Edit</div>
+                        <div class="isUserAuthor" ><i class="far fa-trash-alt"></i> Delete</div>
+                    </div>
                     <div class="article-content">'.$content .' </div>
                     <div class="article-infos">
-                    <diV class="author"><i class="fas fa-user-edit"></i>'.$author .'</diV>
-                    <div class="date"><i class="fas fa-clock"> </i>'. $published_on .'</div>
-                    <div class="category"><i class="fas fa-box"> </i> '.$category .'</div>
+                        <diV class="author"><i class="fas fa-user-edit"></i>'.$author .'</diV>
+                        <div class="date"><i class="fas fa-clock"> </i>'. $published_on .'</div>
+                        <div class="category"><i class="fas fa-box"> </i> '.$category .'</div>
                     </div>
                 </article>';
             }
@@ -97,9 +77,9 @@ require_once("../../config/config.php");
             echo '
             <img src="../../resources/empty.png" alt="emptyalien" id="yo">
             <div class="container2">
-            <h1>You haven\'t published anything yet ! <br></h1>
-            <h2>We are eager to read your theories, share them with us.</h2>
-            <a href="./add_articles.php" style="text-decoration: none;">
+                <h1>You haven\'t published anything yet ! <br></h1>
+                <h2>We are eager to read your theories, share them with us.</h2>
+                <a href="./add_articles.php" style="text-decoration: none;">
                 <span id="articleslink">Create your article</span> </a>
             </div>
             ';
@@ -110,6 +90,7 @@ require_once("../../config/config.php");
 </body>
 
 <footer>
+    <script src="../../js/deploytext.js"></script>
 </footer>
 
 </html>

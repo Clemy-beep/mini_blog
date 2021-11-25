@@ -41,7 +41,7 @@
         <h1>Publish your awesome article</h1>
     </div>
     <div class="container">
-        <form method="POST" action="../../controller/articlesController.php">
+        <form method="POST" action="../../controller/articlesController.php?action=publish">
             <input type="hidden" name="author" value=<?php echo $_SESSION['user']['username'] ?? "Anonymous" ?>>
             <div class="label">
                 <label><i class="fas fa-space-shuttle" style="font-size: 24px; padding-top: 2em;"></i>  Title</label>

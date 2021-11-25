@@ -3,31 +3,7 @@
 require_once("../../config/config.php");
 
    session_start();
-   $error = [
-    "message" => "",
-    "exist" => false
-    ];
-
-    global $connexion;
-    $row = array();
-    $title = "";
-    $author = "";
-    $content="";
-    $date = '';
-    $category = "";
-
-    try{
-
-    $query = $connexion->prepare("SELECT * FROM `articles`;");
-    $query->execute();
-    $response =$query->fetchAll();
-    }
-     catch(Exception $err){
-         $error['message'] = $err;
-         $error['exist']=true;
-         echo $err;
-         die();
-     }
+   include '../../model/articlesModel.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,26 +57,32 @@ require_once("../../config/config.php");
             $author= $row["author"];
             $content= $row['content'];
             $category= $row['category'];
+            $id=$row['id'];
             echo ' 
             <article>
-                <div class="article-title">'. $title .'</div>
-                <div class="article-content" id="article-content">'.$content .' </div>
-                <div class="article-infos">';
-            if($author === $_SESSION['user']['username']){
-                echo '        
-                <div class="isUserAuthor" style="cursor: pointer; color:#ee2020"><i class="far fa-trash-alt"></i> Delete</div>
-                ';
-            }
-            echo    '
-                <diV class="author"><i class="fas fa-user-edit"></i>'.$author .'</diV>
-                <div class="date"><i class="fas fa-clock"> </i>'. $published_on .'</div>
-                <div class="category"><i class="fas fa-box"> </i> '.$category .'</div>
-                <div style="cursor: pointer;" class="deploy" onclick="deployText()"><i class="fas fa-caret-down"></i> Deploy</div>
-                </div>
+                <div class="article-title">'. $title .'</div>';
+                if($author === $_SESSION['user']['username']){
+                    echo '        
+                    <div class="article-options">
+                        <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id='.$id.'\';" ><i class="fa-solid fa-pen-to-square"></i> Edit</div>
+                        <div class="isUserAuthor" ><i class="far fa-trash-alt"></i> Delete</div>
+                    </div>
+                    ';
+                }
+            echo  '
+                <div class="article-content" id="id'.$id.'">'.$content .' </div>
+                <div class="article-infos">
+                    <diV class="author"><i class="fas fa-user-edit"></i>'.$author .'</diV>
+                    <div class="date"><i class="fas fa-clock"> </i>'. $published_on .'</div>
+                    <div class="category"><i class="fas fa-box"> </i> '.$category .'</div>
+                    <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton'.$id.'" onclick="deployText('.$id.')" ><i class="fas fa-caret-down"> See more</i> </div>
+             </div>
             </article>';
         }
         ?>
     </div>
+    <div ></div>
+   
 
 </body>
 

@@ -1,6 +1,6 @@
 
 <?php
-require_once("../config/config.php");
+require_once("/home/stagiaire16/Documents/mini_blog/config/config.php");
 
 $error = [
     "message" => "",
