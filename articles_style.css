@@ -18,6 +18,28 @@ header {
     align-items: center;
 }
 
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+#body {
+    padding-bottom: 8rem;
+}
+
+#footer {
+    margin: -8px;
+    text-align: center;
+    font-family: 'Robotto', sans-serif;
+    font-style: italic;
+    height: 70px;
+    padding-top: 24px;
+    background-color: #41cc8125;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
 .menuitem1,
 .menuitem2,
 .menuitem3,

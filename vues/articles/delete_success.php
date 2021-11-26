@@ -28,8 +28,8 @@ session_start();
             <div id="main">
                 <img src="../../resources/happy.jpg" alt="happyalien" id="yo">
                 <div class="container2">
-                    <h1>Article modofied ! <br></h1>
-                    <h2>Your marvelous text has been successfully edited. You can go back to your articles to see it</h2>
+                    <h1>Article deleted ! <br></h1>
+                    <h2>Your not so awesome text has been successfully deleted.</h2>
                     <a href="./users_articles.php" style="text-decoration: none;">
                         <span id="articleslink">See my articles</span> </a>
                 </div>

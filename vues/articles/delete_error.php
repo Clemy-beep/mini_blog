@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 session_start();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Article modified</title>
+    <title> Error in deletion</title>
     <link rel="stylesheet" href="../../articles_style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +27,13 @@ session_start();
     <div id="body">
         <main>
             <div id="main">
-                <img src="../../resources/happy.jpg" alt="happyalien" id="yo">
+                <img src="../../resources/sad.png" alt="sadalien" id="yo">
                 <div class="container2">
-                    <h1>Article modofied ! <br></h1>
-                    <h2>Your marvelous text has been successfully edited. You can go back to your articles to see it</h2>
-                    <a href="./users_articles.php" style="text-decoration: none;">
-                        <span id="articleslink">See my articles</span> </a>
+                    <h1>Oh no ! <br></h1>
+                    <h2>Your article couldn't be deleted. Please try again later.</h2>
+                    <a href="./articles_list.php" style="text-decoration: none;">
+                        <span id="articleslink">Seel all articles</span> </a>
                 </div>
-
             </div>
 
         </main>

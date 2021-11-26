@@ -3,9 +3,10 @@
 <?php
 require_once '../../config/config.php';
 session_start();
-    unset($_SESSION["user"]["username"]);
-    session_destroy();
+unset($_SESSION["user"]["username"]);
+session_destroy();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,39 +17,38 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<header>
-    <div class="menu">
-        <img src="../../resources/ufo-icon.svg" alt="ufo-icon" class="icon">
-        <div class="welcome"> <a id="menuitem1" style="text-decoration:none" href="../../index.php">Welcome, dear awake fellow !</a></div>
-        <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="sign-in.php">Sign up</a></div>
-        <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="log-in.php ">Sign in</a></div>
-  
-
-    </div>
-    </header>
-    <div class="forms">
-    <div id="login">
-    <img src="../../resources/yo.webp" alt="Yo" id="yo">
-        <div class="container">
-        <h1>Login</h1>
-        <h2>If you already have an account</h2>
-            <form action="../../controller/accountController.php" method="post">
-            <i class="fas fa-envelope-open-text"></i>
-               <label>Email <br></label>
-               <input type="email" name="email2" required> 
-                <br>
-                <i class="fas fa-key"></i>
-                <label>Password <br></label>
-                <input type="password" name="password2" required>
-                <br>
-                <input type="submit" value="Sign in" id="sign-in">
-            </form>
+    <?php
+    include_once '../templates/anonHeader.html';
+    ?>
+    <div id="body">
+        <div id="login">
+            <img src="../../resources/yo.webp" alt="Yo" id="yo">
+            <div class="container">
+                <h1>Login</h1>
+                <h2>If you already have an account</h2>
+                <form action="../../controller/accountController.php" method="post">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <label>Email <br></label>
+                    <input type="email" name="email2" required>
+                    <br>
+                    <i class="fas fa-key"></i>
+                    <label>Password <br></label>
+                    <input type="password" name="password2" required>
+                    <br>
+                    <input type="submit" value="Sign in" id="sign-in">
+                </form>
+            </div>
         </div>
     </div>
-    </div>
+    <footer>
+        <?php
+        include_once '../templates/footer.html';
+        ?>
+    </footer>
 </body>
+
 </html>
