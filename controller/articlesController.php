@@ -1,9 +1,9 @@
 <?php 
 
-require_once '/home/stagiaire16/Documents/mini_blog/config/config.php';
-require_once '/home/stagiaire16/Documents/mini_blog/model/publish_article.php';
-require_once '/home/stagiaire16/Documents/mini_blog/model/modify_article.php';
-require_once '/home/stagiaire16/Documents/mini_blog/model/deleteModel.php';
+require_once '/home/stagiaire16/Documents/blog/config/config.php';
+require_once '/home/stagiaire16/Documents/blog/model/publish_article.php';
+require_once '/home/stagiaire16/Documents/blog/model/modify_article.php';
+require_once '/home/stagiaire16/Documents/blog/model/deleteModel.php';
 
 if (!isset($_GET['action'])) {
     die("Params needed");

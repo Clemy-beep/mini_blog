@@ -1,6 +1,6 @@
 <?php
-require_once '/home/stagiaire16/Documents/mini_blog/config/config.php';
-require_once '/home/stagiaire16/Documents/mini_blog/model/auth.php';
+require_once '/home/stagiaire16/Documents/blog/config/config.php';
+require_once '/home/stagiaire16/Documents/blog/model/auth.php';
 
 session_start();
 $title = isset($_POST["title"]) ? $_POST['title'] : null;
