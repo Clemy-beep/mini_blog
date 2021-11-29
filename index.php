@@ -1,7 +1,7 @@
 <?php
-if (session_status() === PHP_SESSION_ACTIVE) {
-    session_destroy();
-}
+session_start();
+session_unset();
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -49,3 +49,5 @@ if (session_status() === PHP_SESSION_ACTIVE) {
 </body>
 
 </html>
+
+<!--https://coolors.co/f85a3e-ff7733-ffc933-fbfef9-191923 -->

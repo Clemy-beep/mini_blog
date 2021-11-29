@@ -2,7 +2,7 @@
     <div class="menu">
         <img src="../../resources/ufo-icon.svg" alt="ufo-icon" class="icon">
         <div class="welcome">
-            <a href="../account/account_infos.php" style="font-size: 38px;text-decoration: none;">Welcome back <?php if (isset($_SESSION['user']['username'])) {
+            <a href="../articles/account_infos.php" style="font-size: 38px;text-decoration: none;">Welcome back <?php if (isset($_SESSION['user']['username'])) {
                                                                     echo $_SESSION['user']['username'];
                                                                 } else header("Location: /index.php"); ?> !</a>
         </div>

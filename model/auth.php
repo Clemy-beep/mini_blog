@@ -13,7 +13,7 @@ function checkLogin($email, $password)
     $email =  htmlspecialchars(strip_tags($email));
     $password =  htmlspecialchars(strip_tags($password));
 
-    if ( empty($email) || empty($password)) {
+    if (empty($email) || empty($password)) {
         $error["message"] .= "Veuillez remplir tous les champs. Merci ! </br>";
         $error["exist"] = true;
 
@@ -37,7 +37,7 @@ function getPasswordUser($email, $password)
     global $connexion;
     global $error;
 
-    $query = $connexion->prepare("SELECT `pwd`, `username`  FROM `users` WHERE email=:email;");
+    $query = $connexion->prepare("SELECT *  FROM `users` WHERE email=:email;");
     $response = $query->execute(["email" => $email]);
     if (!$response) {
         $error["message"] .= "No account found.";
@@ -47,22 +47,24 @@ function getPasswordUser($email, $password)
 
     $aDatas = $query->fetchAll();
 
+
     verifyPassword($aDatas, $password);
-   
+
     return $error;
 }
 
-function verifyPassword($aDatas, $password) {
+function verifyPassword($aDatas, $password)
+{
     global $error;
     $aDatas = $aDatas[0];
 
-    if(!isset($aDatas['pwd'])) {
+    if (!isset($aDatas['pwd'])) {
         $error["message"] .= "No user found.";
         $error["exist"] = true;
 
         return $error;
     }
-    
+
     $passwordVerified = password_verify($password, $aDatas['pwd']);
 
     if (!$passwordVerified) {
@@ -71,13 +73,14 @@ function verifyPassword($aDatas, $password) {
 
         return $error;
     }
-
     createSession($aDatas);
 }
 
-function createSession($aDatas) {
+function createSession($aDatas)
+{
     session_start();
     $_SESSION['user']['username'] = $aDatas['username'];
     $_SESSION['user']['email'] = $aDatas['email'];
-    $_SESSION['user']['password']= $aDatas['pwd'];
+    $_SESSION['user']['password'] = $aDatas['pwd'];
+    $_SESSION['user']['id']=$aDatas['id'];
 }

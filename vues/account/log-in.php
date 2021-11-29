@@ -3,7 +3,7 @@
 <?php
 require_once '../../config/config.php';
 session_start();
-unset($_SESSION["user"]["username"]);
+session_unset();
 session_destroy();
 ?>
 
