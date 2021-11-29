@@ -78,4 +78,6 @@ function verifyPassword($aDatas, $password) {
 function createSession($aDatas) {
     session_start();
     $_SESSION['user']['username'] = $aDatas['username'];
+    $_SESSION['user']['email'] = $aDatas['email'];
+    $_SESSION['user']['password']= $aDatas['pwd'];
 }
