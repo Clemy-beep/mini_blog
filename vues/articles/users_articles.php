@@ -50,7 +50,7 @@ include '../../model/usersArticlesModel.php';
                     <div class="article-title">' . $title . '</div>
                     <div class="article-options">
                         <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $id . '\';"><i class="fa-solid fa-pen-to-square"></i> Edit</div>
-                        <div class="isUserAuthor" ><i class="far fa-trash-alt"></i> Delete</div>
+                        <div class="isUserAuthor" id= "deleteButton' . $id . '"onclick="deleteArticle(' . $id . ')" ><i class="far fa-trash-alt"></i> Delete</div>
                     </div>
                     <div class="article-content" id="id' . $id . '">' . $content . ' </div>
                     <div class="article-infos">
@@ -79,6 +79,7 @@ include '../../model/usersArticlesModel.php';
 
     <footer>
         <script src="../../js/deploytext.js"></script>
+        <script src="../../js/deleteArticle.js"></script>
         <?php
         include_once '../templates/footer.html';
         ?>
