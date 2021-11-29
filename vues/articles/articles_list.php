@@ -1,7 +1,8 @@
 <?php
+session_start();
+
 require_once("../../config/config.php");
 
-session_start();
 include '../../model/articlesModel.php'
 ?>
 <!DOCTYPE html>
@@ -72,8 +73,8 @@ include '../../model/articlesModel.php'
     <footer>
         <script src="../../js/deploytext.js"></script>
         <script src="../../js/deleteArticle.js"></script>
-        <?php 
-            include_once '../templates/footer.html';
+        <?php
+        include_once '../templates/footer.html';
         ?>
     </footer>
 

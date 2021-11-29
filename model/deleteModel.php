@@ -18,8 +18,6 @@ function deleteArticle($id){
     } catch ( Exception $err) {
         $error["message"] .= $err;
         $error["exist"] = true;
-        var_dump($error);
-        die();
         return $error;
     }
 
