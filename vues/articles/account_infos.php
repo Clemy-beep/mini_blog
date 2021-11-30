@@ -66,6 +66,16 @@ include '../../model/articles_count.php';
                     <input type="submit" id="publish-button" style="cursor: pointer; height: 44px; font-size: 18px; width: 128px; margin-left: auto; display: block; margin-right: auto;" value="Modify">
                 </form>
             </article>
+            <article>
+                <div class="article-title"><i class="fas fa-file-signature"></i> Edit my password</div>
+                <form action="../../controller/pwdEditController.php" method="POST">
+                    <div class="label" style="font-size: 24px;" ><label> Actual password</label></div>
+                    <input type="password" name="confirmpwd" required id="title">
+                    <div class="label" style="font-size: 24px;"><label> New password</label></div>
+                    <input type="password" name="newpwd" id="title" required>
+                    <input type="submit" id="publish-button" style="cursor: pointer; height: 44px; font-size: 18px; width: 128px; margin-left: auto; display: block; margin-right: auto;" value="Modify">
+                </form>
+            </article>
 
         </div>
     </div>

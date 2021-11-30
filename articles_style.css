@@ -58,8 +58,9 @@ a {
 .menuitem1:hover,
 .menuitem2:hover,
 .menuitem3:hover,
-.menuitem4:hover {
-    text-shadow: 0px 0px 4px #b8c5be;
+.menuitem4:hover,
+.welcome:hover {
+    text-shadow: 0px 0px 4px #FF77EE;
 }
 
 h1 {
@@ -74,11 +75,15 @@ h1 {
 .welcome {
     width: 25%;
     text-align: left;
-    font-size: 40px;
     font-weight: bolder;
     color: white;
     padding-top: 0.5em;
     padding-left: 34px;
+    align-self: flex-end;
+}
+
+.welcome a {
+    font-size: 36px;
 }
 
 h2 {
@@ -102,7 +107,7 @@ span {
     width: 42px;
     height: 42px;
     align-self: flex-end;
-    padding-left: 64px;
+    padding-left: 2em;
 }
 
 .title {
@@ -110,7 +115,8 @@ span {
     align-items: center;
     justify-items: flex-start;
     justify-content: flex-start;
-    margin-left: 20vw;
+    margin-left: 15vw;
+    padding-bottom: 42px;
 }
 
 .container {
@@ -259,13 +265,25 @@ article {
     height: fit-content;
 }
 
+.article-header {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+}
+
 .article-title {
     font-family: 'Genos', sans-serif;
     color: #41cc81;
     font-size: 26px;
     font-weight: 600;
     margin-bottom: 16px;
-    text-align: left;
+    text-align: justify;
+    width: 90%;
+}
+
+.article-header i {
+    padding-top: 0.5em;
+    text-align: right;
 }
 
 .article-content {
@@ -319,6 +337,13 @@ article {
     margin-bottom: 32px;
 }
 
+.isUserAuthor {
+    cursor: pointer;
+    color: #FF77EE;
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 @media(max-width:1200px) {
     .main {
         margin-left: 6%;
@@ -349,10 +374,12 @@ article {
     .container2 h2 {
         font-size: 18px;
     }
-    .welcome {
-        padding-top: 0.25em;
-        font-size: 26px;
-        width: 15%;
+    .welcome a {
+        padding-top: 0;
+        font-size: 22px;
+    }
+    .icon {
+        align-self: center;
     }
     .menuitem1,
     .menuitem2,
@@ -360,7 +387,7 @@ article {
     .menuitem4,
     a {
         padding-top: 0.25em;
-        font-size: 22px;
+        font-size: 18px;
     }
 }
 
@@ -371,22 +398,9 @@ article {
         margin-left: auto;
         padding-top: 0;
     }
-    .welcome {
-        font-size: 24px;
-    }
-    .welcome-container {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
     .container2 {
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
-}
-
-.isUserAuthor {
-    cursor: pointer;
-    color: #FF77EE;
-    text-align: right;
 }
