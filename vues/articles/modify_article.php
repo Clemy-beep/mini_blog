@@ -4,10 +4,11 @@ require_once('../../config/config.php');
 require_once('../../helpers/articleHelper.php');
 
 if (!isset($_GET['id'])) {
-    header("Location: /vues/articles_list.php");
+    header("Location: /vues/articles/articles_list.php");
 }
 
 $aArticle = getArticle($_GET['id']);
+
 ?>
 
 <!DOCTYPE html>
@@ -52,8 +53,8 @@ $aArticle = getArticle($_GET['id']);
                 <?= $aArticle['content'] ?>
             </textarea>
                 <br>
-                <input type="hidden" name="id" value="<?= $aArticle['id'] ?>">
-                <input type="hidden" name="author" value="<?= $aArticle['author'] ?>">
+                <input type="hidden" name="id" value="<?= $aArticle['article_id'] ?>">
+                <input type="hidden" name="author" value="<?= $aArticle['author_id'] ?>">
                 <input type="submit" value="Modify !" id="publish-button" style="cursor: pointer;">
             </form>
         </div>

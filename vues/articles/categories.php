@@ -15,6 +15,7 @@ $content = "";
 $date = '';
 $category = "";
 $id;
+$articleId;
 
 
 ?>
@@ -58,7 +59,7 @@ $id;
             if (isset($_POST['categories'])) {
                 try {
 
-                    $query = $connexion->prepare("SELECT * FROM `articles` WHERE `category` = :category AND isDeleted = 0  ORDER BY `published_on` DESC;");
+                    $query = $connexion->prepare("SELECT * FROM `articles` INNER JOIN `users` ON `articles`.`author_id`=`users`.`id` WHERE `category` = :category AND isDeleted = 0  ORDER BY `published_on` DESC;");
                     $query->execute(["category" => $_POST['categories']]);
                     $response = $query->fetchAll();
                 } catch (Exception $err) {
@@ -73,28 +74,29 @@ $id;
                         $timestamp = strtotime($date);
                         $title = $row['title'];
                         $published_on = date("d-m-Y", $timestamp);
-                        $author = $row["author"];
+                        $author = $row["username"];
                         $content = $row['content'];
                         $category = $row['category'];
                         $id = $row['id'];
+                        $articleId = $row['article_id'];
                         echo ' 
                             <article id="categ-articles">   
                                 <div class="article-title">' . $title . '</div>';
                         if ($author === $_SESSION['user']['username']) {
                             echo '        
                                     <div class="article-options">
-                                    <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $id . '\';" ><i class="fa-solid fa-pen-to-square"></i> Edit</div>
+                                    <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $articleId . '\';" ><i class="fa-solid fa-pen-to-square"></i> Edit</div>
                                     <div class="isUserAuthor" ><i class="far fa-trash-alt"></i> Delete</div>
                                     </div>
                                     ';
                         }
                         echo '
-                                <div class="article-content" id="id' . $id . '">' . $content . ' </div>
+                                <div class="article-content" id="id' . $articleId . '">' . $content . ' </div>
                                 <div class="article-infos">
                                     <diV class="author"><i class="fas fa-user-edit"></i>' . $author . '</diV>
                                     <div class="date"><i class="fas fa-clock"> </i>' . $published_on . '</div>
                                     <div class="category"><i class="fas fa-box"> </i> ' . $category . '</div>
-                                    <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton' . $id . '" onclick="deployText(' . $id . ')" ><i class="fas fa-caret-down"> See more</i> </div>
+                                    <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton' . $articleId . '" onclick="deployText(' . $articleId . ')" ><i class="fas fa-caret-down"> See more</i> </div>
                                 </div>
                             </article>';
                     }

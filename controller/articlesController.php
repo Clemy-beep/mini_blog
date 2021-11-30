@@ -45,8 +45,8 @@ function publish(){
 }
 
 function modify(){
-    if(isset($_POST['id'],$_POST['title'], $_POST['author'], $_POST['content'])){
-        $isReadyModify = modifyArticle($_POST['id'], $_POST['title'],$_POST['author'],  $_POST['content']);
+    if(isset($_POST['id'],$_POST['title'], $_POST['content'])){
+        $isReadyModify = modifyArticle($_POST['id'], $_POST['title'],$_POST['content']);
         if(!$isReadyModify['exist']){
             header("Location: /vues/articles/modif_success.php");
         } 

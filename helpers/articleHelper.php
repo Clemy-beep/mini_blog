@@ -5,7 +5,7 @@ function getArticle($id): array
     global $connexion;
     global $error;
     try {
-        $query = $connexion->prepare("SELECT * FROM `articles` WHERE id=:id");
+        $query = $connexion->prepare("SELECT * FROM `articles` WHERE article_id=:id");
         $query->execute(['id' => $id]);
         
     } catch (\PDOException $err) {
@@ -17,14 +17,14 @@ function getArticle($id): array
         return $error;
     }
 
-    $response = $query->fetch(PDO::FETCH_ASSOC);
+    $response = $query->fetchAll();
 
-    if (!isset($response['id'])) {
+    if (!$response) {
         $error["message"] = "Aucun article trouvé";
         $error["exist"] = true;
 
         return $error;
     }
 
-    return $response;
+    return $response[0];
 }

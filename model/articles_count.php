@@ -10,8 +10,8 @@ $error = [
 
     try{
 
-        $query = $connexion->prepare(" SELECT COUNT(*) FROM `articles` WHERE `author`=:username;");
-        $query->execute(["username" => $username]);
+        $query = $connexion->prepare(" SELECT COUNT(*) FROM `articles` INNER JOIN `users` ON `articles`.`author_id` = `users`.`id` WHERE `articles`.`author_id` = :id AND `articles`.`isDeleted` = 0;");
+        $query->execute(["id" => $_SESSION['user']['id']]);
         $total_articles =$query->fetch(PDO::FETCH_LAZY);
         }
          catch(Exception $err){

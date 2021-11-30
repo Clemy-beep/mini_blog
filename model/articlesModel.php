@@ -16,7 +16,7 @@ $error = [
 
     try{
 
-    $query = $connexion->prepare("SELECT * FROM `articles` WHERE  isDeleted = 0 ORDER BY `published_on` DESC;");
+    $query = $connexion->prepare("SELECT * FROM `articles` INNER JOIN `users` ON `users`.`id`=`articles`.`author_id` WHERE  isDeleted = 0 ORDER BY `published_on` DESC;");
     $query->execute();
     $response =$query->fetchAll();
     }

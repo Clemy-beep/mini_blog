@@ -7,13 +7,13 @@ $error= [
     "exist" => false
 ];
 
-function deleteArticle($id){
+function deleteArticle($articleId){
     global $connexion;
     global $error;
 
     try {
-        $query = $connexion->prepare("UPDATE `articles` SET `isDeleted` = 1 WHERE `id`= :id;");
-        $response = $query->execute(['id' => $id]);
+        $query = $connexion->prepare("UPDATE `articles` SET `isDeleted` = 1 WHERE `article_id`= :id;");
+        $response = $query->execute(['id' => $articleId]);
 
     } catch ( Exception $err) {
         $error["message"] .= $err;

@@ -42,34 +42,40 @@ include '../../model/articlesModel.php'
 
                 $title = $row['title'];
                 $published_on = date("d-m-Y", $timestamp);
-                $author = $row["author"];
+                $author = $row["username"];
                 $content = $row['content'];
                 $category = $row['category'];
                 $id = $row['id'];
+                $articleId = $row['article_id'];
                 echo ' 
-            <article>
-                <div class="article-title">' . $title . '</div>';
+                <article>
+                    <div class="article-header">
+                        <div class="article-title">' . $title . '</div>
+                        <div class="isUserAuthor"><i title="Open in a new page" onclick="location.href=\'article.php?id=' . $articleId . '\';" class="fas fa-external-link-alt"></i></div>
+                    </div>
+               ';
                 if ($author === $_SESSION['user']['username']) {
                     echo '        
                     <div class="article-options">
-                        <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $id . '\';" ><i class="fa-solid fa-pen-to-square"></i> Edit</div>
-                        <div class="isUserAuthor" id= "deleteButton' . $id . '"onclick="deleteArticle(' . $id . ')" ><i class="far fa-trash-alt"></i> Delete</div>
+                        <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $articleId . '\';" ><i class="fa-solid fa-pen-to-square"></i> Edit</div>
+                        <div class="isUserAuthor" id= "deleteButton' . $articleId . '"onclick="deleteArticle(' . $articleId . ')" ><i class="far fa-trash-alt"></i> Delete</div>
                     </div>
                     ';
                 }
                 echo  '
-                <div class="article-content" id="id' . $id . '">' . $content . ' </div>
+                <div class="article-content" id="id' . $articleId . '">' . $content . ' </div>
                 <div class="article-infos">
                     <diV class="author"><i class="fas fa-user-edit"></i>' . $author . '</diV>
                     <div class="date"><i class="fas fa-clock"> </i>' . $published_on . '</div>
                     <div class="category"><i class="fas fa-box"> </i> ' . $category . '</div>
-                    <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton' . $id . '" onclick="deployText(' . $id . ')" ><i class="fas fa-caret-down"> See more</i> </div>
-             </div>
+                    <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton' . $articleId . '" onclick="deployText(' . $articleId . ')" ><i class="fas fa-caret-down"> See more</i> </div>
+                </div>
             </article>';
             }
             ?>
         </div>
     </div>
+   
     <footer>
         <script src="../../js/deploytext.js"></script>
         <script src="../../js/deleteArticle.js"></script>

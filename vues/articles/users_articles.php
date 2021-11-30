@@ -40,24 +40,25 @@ include '../../model/usersArticlesModel.php';
                     $date = $row['published_on'];
                     $timestamp = strtotime($date);
                     $id = $row['id'];
+                    $article_id = $row['article_id'];
                     $title = $row['title'];
                     $published_on = date("d-m-Y", $timestamp);
-                    $author = $row["author"];
+                    $author = $row["username"];
                     $content = $row['content'];
                     $category = $row['category'];
                     echo ' 
                 <article>
                     <div class="article-title">' . $title . '</div>
                     <div class="article-options">
-                        <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $id . '\';"><i class="fa-solid fa-pen-to-square"></i> Edit</div>
-                        <div class="isUserAuthor" id= "deleteButton' . $id . '"onclick="deleteArticle(' . $id . ')" ><i class="far fa-trash-alt"></i> Delete</div>
+                        <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $article_id . '\';"><i class="fa-solid fa-pen-to-square"></i> Edit</div>
+                        <div class="isUserAuthor" id= "deleteButton' . $article_id . '"onclick="deleteArticle(' . $article_id . ')" ><i class="far fa-trash-alt"></i> Delete</div>
                     </div>
-                    <div class="article-content" id="id' . $id . '">' . $content . ' </div>
+                    <div class="article-content" id="id' . $article_id . '">' . $content . ' </div>
                     <div class="article-infos">
                         <diV class="author"><i class="fas fa-user-edit"></i>' . $author . '</diV>
                         <div class="date"><i class="fas fa-clock"> </i>' . $published_on . '</div>
                         <div class="category"><i class="fas fa-box"> </i> ' . $category . '</div>
-                        <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton' . $id . '" onclick="deployText(' . $id . ')" ><i class="fas fa-caret-down"> See more</i> </div>
+                        <div style="cursor: pointer;" class="deployButton" title="Double click to show content." id= "deployButton' . $article_id . '" onclick="deployText(' . $article_id . ')" ><i class="fas fa-caret-down"> See more</i> </div>
                     </div>
                 </article>';
                 }

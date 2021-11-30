@@ -9,14 +9,14 @@ $error = [
     "exist" => false
 ];
 
-function modifyArticle($id, $title, $author, $content) {
+function modifyArticle($articleId, $title, $content) {
   
     global $connexion;
 
     global $error;
     try {
-        $query = $connexion->prepare("UPDATE `articles` SET `title`=:title, `content`= :content WHERE (`author`=:author AND `id`=:id);");
-        $response = $query->execute(['id' => $id,'title' => $title, 'author' => $author,'content' => $content,]);
+        $query = $connexion->prepare("UPDATE `articles` SET `title`=:title, `content`= :content WHERE `article_id`=:id;");
+        $response = $query->execute(['id' => $articleId,'title' => $title,'content' => $content,]);
 
     } catch ( Exception $err) {
         $error["message"] .= $err;

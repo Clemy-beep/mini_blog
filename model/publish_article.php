@@ -19,7 +19,6 @@ function checkArticle($title, $content, $category){
     global $response;
 
     $title = htmlspecialchars(strip_tags($title));
-    $content = htmlspecialchars(strip_tags($content));
     $category= htmlspecialchars(strip_tags($category));
 
     if(empty($title) || empty($content) || empty($category)){
