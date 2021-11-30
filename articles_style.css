@@ -69,6 +69,7 @@ h1 {
     font-family: 'Genos';
     font-size: 42px;
     margin-left: 0.5em;
+    margin-right: 1em;
     color: #3b3947;
 }
 
@@ -179,6 +180,10 @@ span {
     border: 1px solid #3b3947;
 }
 
+.tiny_class {
+    border: 2px solid #3b3947;
+}
+
 select {
     height: 44px;
     border-radius: 12px;
@@ -255,9 +260,8 @@ textarea {
 }
 
 article {
+    display: block;
     width: 25%;
-    margin-left: auto;
-    margin-right: auto;
     box-shadow: 0px 0px 6px 2px #00000045;
     background-color: white;
     padding: 2em;
@@ -342,6 +346,24 @@ article {
     color: #FF77EE;
     text-align: right;
     font-family: 'Courier New', Courier, monospace;
+}
+
+#article {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
+    font-family: 'Robotto';
+}
+
+#article_title {
+    padding-bottom: 0;
+    width: 60vw;
+    margin-left: 18vw;
+}
+
+#article_infos {
+    padding-bottom: 2em;
 }
 
 @media(max-width:1200px) {

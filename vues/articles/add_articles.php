@@ -9,12 +9,27 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tiny.cloud/1/hnr25u7ycmvoh7wp6d2s8juvsa2wdr9kgwhenmdfhwwbalew/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Create article</title>
     <link rel="stylesheet" href="../../articles_style.css?<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        tinymce.init({
+            selector: '#content',
+            plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+            toolbar_mode: 'floating',
+            width:"50vw",
+            height:500,
+            body_class: "tiny_class",
+            content_css: '../../article_style.css',
+            icons: 'material' 
+        });
+    </script>
+
 </head>
 
 <body>
@@ -29,7 +44,7 @@ session_start();
         </div>
         <div class="container">
             <form method="POST" action="../../controller/articlesController.php?action=publish">
-                <input type="hidden" name="author" value=<?php echo $_SESSION['user']['username'] ?? "Anonymous" ?>>
+                <input type="hidden" name="author" value=<?= $_SESSION['user']['username'] ?? "Anonymous" ?>>
                 <div class="label">
                     <label><i class="fas fa-space-shuttle" style="font-size: 24px; padding-top: 2em;"></i> Title</label>
                 </div>

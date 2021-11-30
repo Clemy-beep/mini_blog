@@ -18,8 +18,7 @@ function checkArticle($title, $content, $category){
     global $connexion;
     global $response;
 
-    $title = htmlspecialchars(strip_tags($title));
-    $category= htmlspecialchars(strip_tags($category));
+
 
     if(empty($title) || empty($content) || empty($category)){
         $error['message']= "A field is still empty.";
