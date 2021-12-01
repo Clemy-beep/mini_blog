@@ -116,7 +116,7 @@ span {
     align-items: center;
     justify-items: flex-start;
     justify-content: flex-start;
-    margin-left: 15vw;
+    margin-left: 20vw;
     padding-bottom: 42px;
 }
 
@@ -401,6 +401,12 @@ article {
         height: 450px;
         width: 450px;
     }
+    .container {
+        width: 85vw;
+    }
+    .title {
+        margin-left: 10vw;
+    }
     .container2 {
         width: 25vw;
     }
@@ -465,6 +471,9 @@ article {
     }
     header {
         width: 100vw;
+    }
+    .title {
+        margin-left: 10vw;
     }
 }
 

@@ -32,10 +32,10 @@ if (isset($_POST['content']) && !empty($_POST['content'])) {
     <script>
         tinymce.init({
             selector: '#content',
-            plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
             toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
             toolbar_mode: 'floating',
-            width: "50vw",
+            width: "90%",
             height: 500,
             icons: 'material',
             skin: 'CUSTOM',
