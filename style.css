@@ -265,6 +265,10 @@ a span {
     .welcome {
         padding-top: 0.25em;
     }
+    #welcome {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
 @media(max-width:900px) {
@@ -296,9 +300,5 @@ a span {
     .welcome-container {
         margin-left: 10%;
         margin-right: 10%;
-    }
-    #welcome {
-        display: flex;
-        flex-direction: column-reverse;
     }
 }

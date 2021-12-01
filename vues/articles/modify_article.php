@@ -12,21 +12,43 @@ $aArticle = getArticle($_GET['id']);
 ?>
 
 <!DOCTYPE html>
+
+<?php
+$allowedTags = '<p><strong><em><u><h1><h2><h3><h4><h5><h6><img>';
+$allowedTags .= '<li><ol><ul><span><div><br><ins><del>';
+// Should use some proper HTML filtering here.
+
+?>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modify article</title>
+    <script src="https://cdn.tiny.cloud/1/hnr25u7ycmvoh7wp6d2s8juvsa2wdr9kgwhenmdfhwwbalew/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <title>Edit article</title>
     <link rel="stylesheet" href="../../articles_style.css?<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    <script>
+        tinymce.init({
+            selector: '#content',
+            plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+            toolbar_mode: 'floating',
+            width: "90%",
+            height: 500,
+            icons: 'material',
+            skin: 'CUSTOM',
+            skin_url: '/resources/tinyskins/skins/ui/CUSTOM'
+
+        });
+        var myContent = tinymce.get("content").getContent();
+        tinymce.activeEditor.setContent(myContent);
+    </script>
 
 <body>
     <?php
@@ -50,8 +72,8 @@ $aArticle = getArticle($_GET['id']);
                 </div>
                 <br>
                 <textarea name="content" id="content" cols="20" rows="10" required>
-                <?= $aArticle['content'] ?>
-            </textarea>
+                    <?= $aArticle['content'] ?>
+                </textarea>
                 <br>
                 <input type="hidden" name="id" value="<?= $aArticle['article_id'] ?>">
                 <input type="hidden" name="author" value="<?= $aArticle['author_id'] ?>">
@@ -60,7 +82,7 @@ $aArticle = getArticle($_GET['id']);
         </div>
     </div>
     <footer>
-        <?php 
+        <?php
         include_once '../templates/footer.html';
         ?>
     </footer>

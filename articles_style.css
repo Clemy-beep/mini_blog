@@ -245,8 +245,8 @@ textarea {
 }
 
 #yo {
-    width: 30vw;
-    height: 30vw;
+    width: 25vw;
+    height: 25vw;
 }
 
 .main {
@@ -257,6 +257,7 @@ textarea {
     gap: 1em 1em;
     margin-left: 5%;
     margin-right: 5%;
+    justify-content: center;
 }
 
 article {
@@ -353,7 +354,7 @@ article {
     margin-left: auto;
     margin-right: auto;
     width: 60vw;
-    font-family: 'Robotto';
+    font-family: 'Robotto', sans-serif;
 }
 
 #article_title {
@@ -364,6 +365,19 @@ article {
 
 #article_infos {
     padding-bottom: 2em;
+}
+
+.infos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 42px;
+    gap: 1em 1em;
+    justify-content: center;
+}
+
+.infos article {
+    width: 30vw;
 }
 
 @media(max-width:1200px) {
@@ -384,8 +398,8 @@ article {
         align-content: center;
     }
     #yo {
-        height: 465px;
-        width: 465px;
+        height: 450px;
+        width: 450px;
     }
     .container2 {
         width: 25vw;
@@ -414,15 +428,45 @@ article {
 }
 
 @media(max-width:900px) {
+    .infos article {
+        width: 70vw;
+    }
+    article {
+        width: 70vw;
+    }
     #yo {
         display: block;
         margin-right: auto;
         margin-left: auto;
         padding-top: 0;
     }
+    .main {
+        flex-direction: column;
+        margin-right: 3em;
+        margin-left: 3em;
+    }
+    .infos {
+        flex-direction: column;
+    }
     .container2 {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+    .container {
+        width: 85vw;
+    }
+    .main {
+        flex-flow: column nowrap;
+    }
+    header {
+        width: 100vw;
+    }
+}
+
+@media(max-width:400px) {
+    #yo {
+        width: 250px;
+        height: 250px;
     }
 }

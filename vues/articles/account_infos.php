@@ -35,47 +35,49 @@ include '../../model/articles_count.php';
             <h1>My informations</h1>
         </div>
         <div class="main">
-
-            <?php
-
-
-            if (!empty($response) && !empty($total_articles)) {
-                $total_articles = $total_articles[0];
-                echo '
+            <div class="infos">
+                <img src="../../resources/secret.png" alt="secretalien" id="yo" style="margin-right:6em ;">
+                <?php
+                if (!empty($response) && !empty($total_articles)) {
+                    $total_articles = $total_articles[0];
+                    echo '
+                        <article>
+                            <div class="article-title"> <i class="fab fa-reddit-alien"></i> Username</div>
+                            <div class="article-content">' . $response[0]['username'] . '</div>
+                            <br>
+                            <div class="article-title"><i class="fas fa-envelope-open-text"></i> Email</div>
+                            <div class="article-content">' . $response[0]['email'] . '</div>
+                            <br>
+                            <div class="article-title"> <i class="far fa-newspaper"></i> Articles published</div>
+                            <div class="article-content">' . $total_articles . '</div>
+                        </article>
+                        ';
+                }
+                ?>
                 <article>
-                    <div class="article-title"> <i class="fab fa-reddit-alien"></i> Username</div>
-                    <div class="article-content">' . $response[0]['username'] . '</div>
-                    <br>
-                    <div class="article-title"><i class="fas fa-envelope-open-text"></i> Email</div>
-                    <div class="article-content">' . $response[0]['email'] . '</div>
-                    <br>
-                    <div class="article-title"> <i class="far fa-newspaper"></i> Articles published</div>
-                    <div class="article-content">' . $total_articles . '</div>
+                    <div class="article-title"><i class="far fa-edit"></i> Edit my informations</div>
+                    <form action="../../controller/accountInfosController.php" method="POST">
+                        <div class="label" style="font-size: 24px;"><label> Username</label></div>
+                        <input style="font-size: 16px;" type="text" id="title" name="username" value="<?= $response[0]['username'] ?? $_SESSION['user']['username'] ?>">
+                        <input type="hidden" name="userid" value="<?= $_SESSION['user']['id'] ?>">
+                        <div class="label" style="font-size: 24px;"><label>Email</label></div>
+                        <input style="font-size: 16px;" type="text" id="title" name="email" value="<?= $response[0]['email'] ?? $_SESSION['user']['email'] ?>">
+                        <input type="submit" id="publish-button" style="cursor: pointer; height: 44px; font-size: 18px; width: 128px; margin-left: auto; display: block; margin-right: auto;" value="Modify">
+                    </form>
                 </article>
-                ';
-            }
-            ?>
-            <article>
-                <div class="article-title"><i class="far fa-edit"></i> Edit my informations</div>
-                <form action="../../controller/accountInfosController.php" method="POST">
-                    <div class="label" style="font-size: 24px;"><label> Username</label></div>
-                    <input style="font-size: 16px;" type="text" id="title" name="username" value="<?= $response[0]['username'] ?? $_SESSION['user']['username'] ?>">
-                    <input type="hidden" name="userid" value="<?= $_SESSION['user']['id'] ?>">
-                    <div class="label" style="font-size: 24px;"><label>Email</label></div>
-                    <input style="font-size: 16px;" type="text" id="title" name="email" value="<?= $response[0]['email'] ?? $_SESSION['user']['email'] ?>">
-                    <input type="submit" id="publish-button" style="cursor: pointer; height: 44px; font-size: 18px; width: 128px; margin-left: auto; display: block; margin-right: auto;" value="Modify">
-                </form>
-            </article>
-            <article>
-                <div class="article-title"><i class="fas fa-file-signature"></i> Edit my password</div>
-                <form action="../../controller/pwdEditController.php" method="POST">
-                    <div class="label" style="font-size: 24px;" ><label> Actual password</label></div>
-                    <input type="password" name="confirmpwd" required id="title">
-                    <div class="label" style="font-size: 24px;"><label> New password</label></div>
-                    <input type="password" name="newpwd" id="title" required>
-                    <input type="submit" id="publish-button" style="cursor: pointer; height: 44px; font-size: 18px; width: 128px; margin-left: auto; display: block; margin-right: auto;" value="Modify">
-                </form>
-            </article>
+                <article>
+                    <div class="article-title"><i class="fas fa-file-signature"></i> Edit my password</div>
+                    <form action="../../controller/pwdEditController.php" method="POST">
+                        <div class="label" style="font-size: 24px;"><label> Actual password</label></div>
+                        <input type="password" name="confirmpwd" required id="title">
+                        <div class="label" style="font-size: 24px;"><label> New password</label></div>
+                        <input type="password" name="newpwd" id="title" required>
+                        <input type="submit" id="publish-button" style="cursor: pointer; height: 44px; font-size: 18px; width: 128px; margin-left: auto; display: block; margin-right: auto;" value="Modify">
+                    </form>
+                </article>
+
+            </div>
+
 
         </div>
     </div>

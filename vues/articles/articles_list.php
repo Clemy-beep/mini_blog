@@ -43,7 +43,7 @@ include '../../model/articlesModel.php'
                 $title = $row['title'];
                 $published_on = date("d-m-Y", $timestamp);
                 $author = $row["username"];
-                $content = $row['content'];
+                $content = htmlspecialchars(strip_tags($row['content']));
                 $category = $row['category'];
                 $id = $row['id'];
                 $articleId = $row['article_id'];

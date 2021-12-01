@@ -27,8 +27,8 @@ function checkArticle($title, $content, $category){
         return $error;
     }
 
-    $query = $connexion->prepare("INSERT INTO `articles`(`title`, `content`, `published_on`, `author`, `category`) VALUES (:title, :content,NOW(), :author, :category)");
-    $response=$query->execute(['title' => $title , 'content' => $content, 'author' => $_SESSION['user']['username'], 'category' => $category]);
+    $query = $connexion->prepare("INSERT INTO `articles`(`title`, `content`, `published_on`, `author_id`, `category`) VALUES (:title, :content,NOW(), :author, :category)");
+    $response=$query->execute(['title' => $title , 'content' => $content, 'author' => $_SESSION['user']['id'], 'category' => $category]);
     
     if(!$response){
         $error["message"] .= "Une erreur s'est produite durant l'insertion";

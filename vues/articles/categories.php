@@ -41,7 +41,7 @@ $articleId;
     ?>
 
     <div id="body">
-        <div class="title">
+        <div class="title" style="margin-left: 25vw;">
             <img id="articles-icon" src="../../resources/stars.png" width="54px" height="54px" />
             <h1>Browse by categories !</h1>
         </div>
@@ -75,13 +75,16 @@ $articleId;
                         $title = $row['title'];
                         $published_on = date("d-m-Y", $timestamp);
                         $author = $row["username"];
-                        $content = $row['content'];
+                        $content = htmlspecialchars(strip_tags($row['content']));
                         $category = $row['category'];
                         $id = $row['id'];
                         $articleId = $row['article_id'];
                         echo ' 
                             <article id="categ-articles">   
-                                <div class="article-title">' . $title . '</div>';
+                            <div class="article-header">
+                                <div class="article-title">' . $title . '</div>
+                                <div class="isUserAuthor"><i title="Open in a new page" onclick="location.href=\'article.php?id=' . $articleId . '\';" class="fas fa-external-link-alt"></i></div>
+                            </div>';
                         if ($author === $_SESSION['user']['username']) {
                             echo '        
                                     <div class="article-options">

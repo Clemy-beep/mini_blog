@@ -44,11 +44,14 @@ include '../../model/usersArticlesModel.php';
                     $title = $row['title'];
                     $published_on = date("d-m-Y", $timestamp);
                     $author = $row["username"];
-                    $content = $row['content'];
+                    $content = htmlspecialchars(strip_tags($row['content']));
                     $category = $row['category'];
                     echo ' 
                 <article>
-                    <div class="article-title">' . $title . '</div>
+                    <div class="article-header">
+                        <div class="article-title">' . $title . '</div>
+                        <div class="isUserAuthor"><i title="Open in a new page" onclick="location.href=\'article.php?id=' . $article_id . '\';" class="fas fa-external-link-alt"></i></div>
+                    </div>
                     <div class="article-options">
                         <div class="isUserAuthor" onclick="location.href=\'modify_article.php?id=' . $article_id . '\';"><i class="fa-solid fa-pen-to-square"></i> Edit</div>
                         <div class="isUserAuthor" id= "deleteButton' . $article_id . '"onclick="deleteArticle(' . $article_id . ')" ><i class="far fa-trash-alt"></i> Delete</div>
