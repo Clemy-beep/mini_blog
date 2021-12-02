@@ -15,7 +15,21 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+}
+
+#articles-section {
+    background: linear-gradient( rgb(77, 161, 109), #41cc81);
+    border-radius: 0px 0px 8px 8px;
+    padding: 16px;
+    position: absolute;
+    margin-top: 1.6em;
+    list-style: none;
+    display: none;
+}
+
+#articles-section a {
+    text-decoration: none;
 }
 
 body {
@@ -55,12 +69,20 @@ a {
     font-size: 28px;
 }
 
-.menuitem1:hover,
+#bigmenu:hover,
 .menuitem2:hover,
 .menuitem3:hover,
 .menuitem4:hover,
-.welcome:hover {
+.welcome:hover,
+.menuitem1 a:hover,
+.menuitem2 a:hover,
+.menuitem3 a:hover,
+#articles-section li:hover a:hover {
     text-shadow: 0px 0px 4px #FF77EE;
+}
+
+.menuitem1 a:hover>#articles-section {
+    display: block;
 }
 
 h1 {
@@ -392,11 +414,6 @@ article {
     .article-infos {
         font-size: 12px;
     }
-    .menu {
-        align-items: flex-end;
-        justify-content: center;
-        align-content: center;
-    }
     #yo {
         height: 450px;
         width: 450px;
@@ -416,24 +433,16 @@ article {
     .container2 h2 {
         font-size: 18px;
     }
-    .welcome {
-        align-self: stretch;
-        padding-top: 2em;
-    }
-    .welcome a {
-        padding-top: 0;
-        font-size: 22px;
-    }
     .icon {
-        align-self: flex-end;
+        align-self: center;
     }
-    .menuitem1,
-    .menuitem2,
-    .menuitem3,
-    .menuitem4,
-    a {
-        padding-top: 0.5em;
-        font-size: 18px;
+    .menuitem4 {
+        align-self: baseline;
+    }
+    #articlesicon,
+    #accounticon,
+    #forumicon {
+        display: none;
     }
 }
 
@@ -474,6 +483,25 @@ article {
     }
     .title {
         margin-left: 10vw;
+    }
+    #menuitem1,
+    #menuitem2,
+    #menuitem3 {
+        display: none;
+    }
+    #articlesicon,
+    #forumicon,
+    #accounticon {
+        display: contents;
+    }
+}
+
+@media(max-width: 700px) {
+    .welcome a {
+        font-size: 25px;
+    }
+    .welcome {
+        margin-top: 0.5em;
     }
 }
 

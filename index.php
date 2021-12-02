@@ -23,15 +23,12 @@ session_destroy();
     <header>
         <div class="menu">
             <img src="../resources/ufo-icon.svg" alt="ufo-icon" class="icon">
-            <div class="welcome"> <a id="menuitem1" style="text-decoration:none" href="index.php">Welcome, dear awake fellow !</a></div>
-            <div class="menuitem1"><a id="menuitem1" style="text-decoration:none" href="./vues/account/sign-in.php">Sign up</a></div>
-            <div class="menuitem2"><a id="menuitem2" style="text-decoration:none " href="./vues/account/log-in.php ">Sign in</a></div>
-
-
+            <div class="welcome"> <a  style="text-decoration:none" href="index.php">Welcome, dear awake fellow !</a></div>
+            <div class="menuitem1"><a href="./vues/account/sign-in.php"><i class="fas fa-sign-in-alt" title="Login"></i></a><a id="menuitem1" style="text-decoration:none" href="./vues/account/sign-in.php"> Sign up</a></div>
+            <div class="menuitem2"><a href="./vues/account/log-in.php"><i class="fas fa-user-plus" title="Register"></i></a><a id="menuitem2" style="text-decoration:none " href="./vues/account/log-in.php"> Sign in</a></div>
         </div>
     </header>
     <div id="body">
-        <div id="welcome">
             <div class="welcome-container">
                 <h1>Roswell's blog</h1>
                 <h2>The one and only blog for those who know better. </h2>
@@ -39,10 +36,9 @@ session_destroy();
             </div>
             <img src="./resources/aliens.png" alt="Aliens" class="alien">
 
-        </div>
     </div>
     <footer>
-        <?php 
+        <?php
         include_once './vues/templates/footer.html';
         ?>
     </footer>

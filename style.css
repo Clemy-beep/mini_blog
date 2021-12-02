@@ -8,16 +8,12 @@ header {
     opacity: 0.7;
     font-family: 'Genos';
     font-weight: bold;
-    margin-bottom: 64px;
 }
 
 body {
     position: relative;
     min-height: 100vh;
-}
-
-#body {
-    padding-bottom: 8rem;
+    width: 100vw;
 }
 
 #footer {
@@ -37,6 +33,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    padding-top: 1.5em;
 }
 
 .menuitem1,
@@ -46,9 +44,9 @@ a {
     text-align: center;
     font-size: 24px;
     color: white;
+    align-self: start;
     opacity: 1;
     font-family: 'Genos', sans-serif;
-    padding-top: 1.25em;
     font-size: 28px;
 }
 
@@ -58,12 +56,24 @@ a {
 }
 
 .welcome {
-    width: 26%;
     text-align: left;
     font-size: 40px;
     font-weight: bolder;
     color: white;
-    padding-top: 0.5em;
+    align-self: flex-start;
+    width: 40%;
+}
+
+#body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    gap: 2em;
+    width: 80%;
+    margin-left: 12%;
+    padding-bottom: 4rem;
+    margin-top: 5rem;
 }
 
 .welcome-container {
@@ -72,19 +82,11 @@ a {
     padding-left: 8px;
     padding-right: 8px;
     height: fit-content;
-    margin-left: 10%;
-    margin-right: 10%;
     text-align: center;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0px 0px 6px 2px #00000025;
-}
-
-#welcome {
-    display: flex;
-    margin-left: 10%;
-    margin-right: 15%;
-    align-items: center;
+    width: 35%;
 }
 
 .icon {
@@ -94,13 +96,10 @@ a {
 }
 
 .container {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 8px;
-    padding-right: 8px;
-    width: 400px;
+    width: max-content;
+    padding: 44px;
     height: fit-content;
-    margin: 0 auto;
+    margin: 3em auto;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0px 0px 6px 2px #00000045;
@@ -142,19 +141,6 @@ input[type=email] {
     margin: 8px;
     border: none;
     padding-left: 20px;
-}
-
-#login {
-    display: block;
-    margin-bottom: 4%;
-    margin-top: 4%;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    justify-content: space-around;
-    width: 80vw;
-    margin-left: 15vw;
-    margin-right: 5vw;
 }
 
 input[type=submit] {
@@ -200,8 +186,8 @@ p {
     font-weight: 300;
     text-align: justify;
     font-size: 24px;
-    margin-left: 34px;
-    margin-right: 34px;
+    margin-left: 1em;
+    margin-right: 1em;
     color: #3b3947;
 }
 
@@ -217,9 +203,10 @@ i {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 30vw;
-    height: 30vw;
-    padding-bottom: 44px;
+    width: 25vw;
+    height: 25vw;
+    padding-bottom: 2em;
+    margin-top: 3em;
 }
 
 #hi {
@@ -232,15 +219,6 @@ i {
     height: 30vw;
 }
 
-#register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    margin-left: 15%;
-    margin-right: 10%;
-}
-
 a span {
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -251,16 +229,16 @@ a span {
 
 @media(max-width:1200px) {
     #hi {
-        height: 465px;
-        width: 465px;
+        height: 45vw;
+        width: 45vw;
     }
     #yo {
-        height: 465px;
-        width: 465px;
+        height: 45vw;
+        width: 45vw;
     }
     .alien {
-        height: 465px;
-        width: 465px;
+        height: 45vw;
+        width: 45vw;
     }
     .welcome {
         padding-top: 0.25em;
@@ -272,33 +250,71 @@ a span {
 }
 
 @media(max-width:900px) {
-    #register {
+    #body {
         display: block;
+        margin-right: auto;
+        margin-left: auto;
     }
     #hi {
         display: block;
         margin-right: auto;
         margin-left: auto;
-        padding-top: 44px;
+        padding-top: 2em;
     }
     #login {
         display: block;
+        margin-right: auto;
+        margin-left: auto;
     }
     #yo {
         display: block;
         margin-right: auto;
         margin-left: auto;
-        padding-top: 44px;
+        padding-top: 2em;
     }
-    .welcome {
-        font-size: 24px;
-    }
-    .alien {
-        height: 80vw;
-        width: 80vw;
+    .menuitem1 a,
+    .menuitem2 a {
+        font-size: 20px;
     }
     .welcome-container {
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    .container {
+        width: 60vw;
+        margin-top: 16px;
+    }
+    .welcome a {
+        font-size: 20px;
+        width: fit-content;
+    }
+    .icon {
+        height: 2em;
+        width: 2em;
+    }
+}
+
+@media(max-width:500px) {
+    .welcome-container {
+        padding: 0.5em;
+    }
+    .welcome-container p {
+        font-size: 14px;
+    }
+    .welcome-container h2 {
+        font-size: 16px;
+    }
+    .welcome-container h1 {
+        font-size: 22px;
+    }
+    #menuitem1,
+    #menuitem2 {
+        display: none;
+    }
+    .welcome a {
+        padding-top: 0;
+        margin: 0;
+        padding: 0;
+        width: fit-content;
     }
 }

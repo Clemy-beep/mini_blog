@@ -28,29 +28,25 @@ session_destroy();
     include_once '../templates/anonHeader.html';
     ?>
     <div id="body">
-        <div class="forms">
-            <div id="register">
-                <img src="../../resources/hey.jpg" alt="Hi" id="hi">
-                <div class="container">
-                    <h1>Register</h1>
-                    <h2>New here ? Create an account !</h2>
-                    <form action="../../controller/accountController.php" method="post">
-                        <i class="fas fa-user"></i>
-                        <label>Username <br></label>
-                        <input type="text" name="username" required>
-                        <br>
-                        <i class="fas fa-key"></i>
-                        <label>Password <br></label>
-                        <input type="password" name="password" required>
-                        <br>
-                        <i class="fas fa-envelope-open-text"></i>
-                        <label>Email <br></label>
-                        <input type="email" name="email" required>
-                        <br>
-                        <input type="submit" value="Sign up" id="sign-up">
-                    </form>
-                </div>
-            </div>
+        <img src="../../resources/hey.jpg" alt="Hi" id="hi">
+        <div class="container" id="register-container">
+            <h1>Register</h1>
+            <h2>New here ? Create an account !</h2>
+            <form action="../../controller/accountController.php" method="post">
+                <i class="fas fa-user"></i>
+                <label>Username <br></label>
+                <input type="text" name="username" required>
+                <br>
+                <i class="fas fa-key"></i>
+                <label>Password <br></label>
+                <input type="password" name="password" required>
+                <br>
+                <i class="fas fa-envelope-open-text"></i>
+                <label>Email <br></label>
+                <input type="email" name="email" required>
+                <br>
+                <input type="submit" value="Sign up" id="sign-up">
+            </form>
         </div>
     </div>
     <footer>

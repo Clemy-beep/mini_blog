@@ -25,23 +25,21 @@ session_destroy();
     include_once '../templates/anonHeader.html';
     ?>
     <div id="body">
-        <div id="login">
-            <img src="../../resources/yo.webp" alt="Yo" id="yo">
-            <div class="container">
-                <h1>Login</h1>
-                <h2>If you already have an account</h2>
-                <form action="../../controller/accountController.php" method="post">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <label>Email <br></label>
-                    <input type="email" name="email2" required>
-                    <br>
-                    <i class="fas fa-key"></i>
-                    <label>Password <br></label>
-                    <input type="password" name="password2" required>
-                    <br>
-                    <input type="submit" value="Sign in" id="sign-in">
-                </form>
-            </div>
+        <img src="../../resources/yo.webp" alt="Yo" id="yo">
+        <div class="container">
+            <h1>Login</h1>
+            <h2>If you already have an account</h2>
+            <form action="../../controller/accountController.php" method="post">
+                <i class="fas fa-envelope-open-text"></i>
+                <label>Email <br></label>
+                <input type="email" name="email2" required>
+                <br>
+                <i class="fas fa-key"></i>
+                <label>Password <br></label>
+                <input type="password" name="password2" required>
+                <br>
+                <input type="submit" value="Sign in" id="sign-in">
+            </form>
         </div>
     </div>
     <footer>
