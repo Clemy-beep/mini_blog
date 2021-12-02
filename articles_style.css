@@ -21,15 +21,17 @@ header {
 #articles-section {
     background: linear-gradient( rgb(77, 161, 109), #41cc81);
     border-radius: 0px 0px 8px 8px;
-    padding: 16px;
     position: absolute;
     margin-top: 1.6em;
     list-style: none;
     display: none;
+    width: 15%;
+    padding-bottom: 24px;
 }
 
 #articles-section a {
     text-decoration: none;
+    padding-top: 8px;
 }
 
 body {
@@ -444,6 +446,15 @@ article {
     #forumicon {
         display: none;
     }
+    .welcome a {
+        font-size: 26px
+    }
+    .welcome {
+        align-self: center;
+    }
+    #articles-section a {
+        font-size: 0.8em;
+    }
 }
 
 @media(max-width:900px) {
@@ -493,6 +504,9 @@ article {
     #forumicon,
     #accounticon {
         display: contents;
+    }
+    #articles-section a {
+        font-size: 0.5em;
     }
 }
 
