@@ -55,13 +55,14 @@ $aArticle = getThisArticle($_GET['id']);
         </div>
         <div class="article-infos" id="article_infos">
             <diV class="author"><i class="fas fa-user-edit"></i> <?= $aArticle["username"] ?></diV>
-            <div class="date"><i class="fas fa-clock"> </i> <?=$aArticle['published_on'] ?></div>
-            <div class="category"><i class="fas fa-box"> </i> <?=$aArticle['category'] ?></div>
+            <div class="date"><i class="fas fa-clock"> </i> <?= $aArticle['published_on'] ?></div>
+            <div class="category"><i class="fas fa-box"> </i> <?= $aArticle['category'] ?></div>
         </div>
         <article id="article">
             <?= $aArticle['content'] ?>
 
         </article>
+        <div id="forum-link">Saw something that drove you <span style="color: #FF77EE; background-color: transparent; font-style: italic;">crazy</span> ? Read a theory that made your mind <span  style="color: #FF77EE; background-color: transparent; font-style: italic;">blows away </span> ? Share your impressions with other fellow awoke people on our <span><a href="../forum/forum_welcome.php">forum</a></span>!</div>
     </div>
     <?php
     include '../templates/footer.html'

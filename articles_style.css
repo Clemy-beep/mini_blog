@@ -44,7 +44,6 @@ body {
 }
 
 #footer {
-    margin: -8px;
     text-align: center;
     font-family: 'Robotto', sans-serif;
     font-style: italic;
@@ -54,6 +53,9 @@ body {
     width: 100%;
     position: absolute;
     bottom: 0;
+    margin-bottom: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
 }
 
 .menuitem1,
@@ -126,6 +128,16 @@ span {
     font-weight: bold;
     font-size: 16px;
     background-color: #41cc81;
+}
+
+#forum-link {
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60vw;
+    margin-top: 2em;
+    font-family: 'Robotto', sans-serif;
 }
 
 .icon {
@@ -524,4 +536,32 @@ article {
         width: 250px;
         height: 250px;
     }
+}
+
+#forum-header {
+    height: max-content;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #41cc8125;
+    background: linear-gradient(#41cc8135, #FF77EE35);
+    text-align: center;
+    font-family: 'Genos', sans-serif;
+    font-size: 26px;
+    margin-top: -64px;
+    font-weight: 500;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+#forum-main {
+    display: flex;
+    align-items: flex-start;
+}
+
+aside {
+    width: 15%;
+    background-color: #00000045;
+    background: linear-gradient(#FF77EE35, #41cc8135);
+    height: 66.3vh;
+    margin-left: -8px;
 }

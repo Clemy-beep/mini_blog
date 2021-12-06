@@ -78,6 +78,7 @@ include '../../model/usersArticlesModel.php';
             }
             ?>
         </div>
+        <div id="forum-link">Saw something that drove you <span style="color: #FF77EE; background-color: transparent; font-style: italic;">crazy</span> ? Read a theory that made your mind <span  style="color: #FF77EE; background-color: transparent; font-style: italic;">blows away </span> ? Share your impressions with other fellow awoke people on our <span><a href="../forum/forum_welcome.php">forum</a></span>!</div>
     </div>
 
 
