@@ -30,14 +30,19 @@ session_start();
         <aside id="categories"></aside>
         <div id="forum-torso">
             <h1>Newest topics</h1>
-            <article>fefefef</article>
+            <article>topic title
+                <p>last comment + author</p>
+                <p>last comment + author</p>
+                <div class="topic-infos">author + category + created at</div>
+            </article>
+            <article>Topic title</article>
             <h1>Your last comments</h1>
             <article>fdk,kef</article>
             <h1>All topics</h1>
             <article>v,eflkv</article>
         </div>
     </div>
-    <?php include'../templates/footer.html'?>
+    <?php include '../templates/footer.html' ?>
     <script src="../../js/forum_welcome.js"></script>
 </body>
 
