@@ -50,12 +50,10 @@ body {
     height: 70px;
     padding-top: 24px;
     background-color: #41cc8125;
-    width: 100%;
+    width: calc(100vw - 13px);
     position: absolute;
     bottom: 0;
-    margin-bottom: -8px;
-    margin-left: -8px;
-    margin-right: -8px;
+    margin: -8px;
 }
 
 .menuitem1,
